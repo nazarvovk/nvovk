@@ -1,10 +1,13 @@
 import React from 'react';
+import SEO from '../components/seo';
 import styles from './index.module.scss';
 import IconButton from '@material-ui/core/IconButton';
 import { FaTelegramPlane } from 'react-icons/fa';
+
 const IndexPage = () => {
   return (
     <>
+      <SEO />
       <div className={styles.mainText}>
         <p className={styles.paragraph}>
           Hi, my name is Nazar and this is my website.
