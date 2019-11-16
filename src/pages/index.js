@@ -1,21 +1,40 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react';
+import styles from './index.module.scss';
+import IconButton from '@material-ui/core/IconButton';
+import { FaTelegramPlane } from 'react-icons/fa';
+const IndexPage = () => {
+  return (
+    <>
+      <div className={styles.mainText}>
+        <p className={styles.paragraph}>
+          Hi, my name is Nazar and this is my website.
+        </p>
+        <p className={styles.paragraph}>
+          I am a web developer, doing awesome frontend stuff
+        </p>
+        <p className={styles.paragraph}>
+          There's not much more here yet but I'm working on it :)
+        </p>
+        <p className={`${styles.paragraph} ${styles.hireParagraph}`}>
+          You can hire me through{' '}
+          <a
+            target='_blank'
+            rel='noopener noreferrer'
+            href='https://www.upwork.com/freelancers/~0141516dc1b519cd5d'
+          >
+            Upwork
+          </a>
+          ...
+        </p>
+      </div>
+      <div className={styles.links}>
+        ...or by texting me =>{' '}
+        <IconButton onClick={() => window.open('https://t.me/nvovk', '_blank')}>
+          <FaTelegramPlane className={styles.icon} />
+        </IconButton>
+      </div>
+    </>
+  );
+};
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
-
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
-
-export default IndexPage
+export default IndexPage;
