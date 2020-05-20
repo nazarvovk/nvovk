@@ -1,0 +1,50 @@
+.Button {
+  height: 5rem;
+  width: 5rem;
+  position: absolute;
+  left: 3rem;
+  bottom: 2rem;
+  cursor: pointer;
+  z-index: 10;
+  background-color: white;
+  border: none;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  text-align: center;
+  transition: all ease-in-out 0.2s;
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+  font-family: inherit;
+  max-width: min-content;
+  overflow: hidden;
+  text-decoration: none;
+  &:hover {
+    border: 4px solid white;
+    background: none;
+    padding: 0 2ch 0 1rem;
+    width: 100%;
+    transform: scale(1.05);
+    &::after {
+      content: 'email me';
+      white-space: nowrap;
+      color: white;
+      transform: translateY(-10%);
+      margin-left: 2ch;
+      max-width: 100%;
+    }
+    .Icon {
+      fill: white;
+    }
+  }
+}
+.Icon {
+  fill: var(--color-background);
+  width: 4rem;
+  // transition: all ease-in-out 2s;
+}
+@keyframes widthExpand {
+  0% {
+    max-width: 0;
+  }
+}

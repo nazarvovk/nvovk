@@ -1,0 +1,77 @@
+@mixin svgGlitch($name, $intensity, $fillColor, $offset) {
+  @at-root {
+    @keyframes #{$name}-anim-2 {
+      @for $i from 0 through $intensity {
+        $top: random(100);
+        $bottom: random(101 - $top);
+        #{percentage($i*(1/$intensity))} {
+          clip-path: inset(#{$top}% 0 #{$bottom}% 0);
+        }
+      }
+    }
+  }
+  svg:nth-child(2) {
+    transform: translate($offset, -50%);
+    animation: #{$name}-anim-2 10s infinite steps(2) normal;
+  }
+}
+
+.AboutSection {
+  min-height: 100vh;
+  cursor: default;
+  font-size: 4rem;
+  font-weight: 400;
+}
+.Title {
+  font-size: 4rem;
+  font-weight: 700;
+  max-width: 56rem;
+  margin-bottom: 8rem;
+}
+.Tech {
+  position: relative;
+  min-height: 100vh;
+  .Text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .Image {
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -12rem;
+    height: 100vh;
+    fill: var(--color-background-lighter);
+  }
+  .ImageContainer {
+    @include svgGlitch('glitch', 20, var(--color-background-lighter), -5px);
+  }
+}
+.Code {
+  position: relative;
+  min-height: 100vh;
+  .Text {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    text-align: right;
+    max-width: 40rem;
+  }
+  .Image {
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50%;
+    fill: var(--color-background-lighter);
+  }
+  .ImageContainer {
+    @include svgGlitch('glitch', 20, var(--color-background-lighter), -7px);
+  }
+}
+.ColorHighlight{
+  color: #4A4C78;
+}

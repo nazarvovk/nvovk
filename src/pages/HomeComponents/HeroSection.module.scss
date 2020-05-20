@@ -1,0 +1,74 @@
+.HeroSection {
+  min-height: 100vh;
+  margin-bottom: 40vh;
+}
+.DividerFade {
+  position: absolute;
+  user-select: none;
+  bottom: -2rem;
+  left: 0;
+  transform: translateY(70%);
+  width: 100%;
+  min-height: 40vh;
+  mix-blend-mode: luminosity;
+  z-index: -1;
+  object-fit: cover;
+}
+
+.CenterText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  white-space: nowrap;
+  cursor: default;
+  span {
+    display: block;
+    z-index: 10;
+    &:first-child {
+      transform: translateX(-5%);
+    }
+    &:last-child {
+      transform: translateX(5%);
+    }
+  }
+}
+.Highlight {
+  color: var(--color-background);
+  overflow: hidden;
+  border: none;
+  outline: none;
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: -1rem;
+    background-color: white;
+    width: 110%;
+    height: 110%;
+    z-index: -1;
+  }
+  animation-name: Highlight;
+  animation-timing-function: ease-in-out;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  animation-direction: alternate;
+  clip-path: polygon(-5% 0, 99% 0%, 99% 78%, -5% 78%);
+}
+@keyframes Highlight {
+  0% {
+    clip-path: polygon(-5% 0, 99% 0%, 99% 78%, -5% 78%);
+  }
+  30% {
+    clip-path: polygon(-2% 0, 102% 0%, 102% 80%, -2% 80%);
+  }
+  60% {
+    clip-path: polygon(-7% 2%, 99% 2%, 99% 75%, -7% 75%);
+  }
+  100% {
+    clip-path: polygon(2% 15%, 105% 15%, 105% 85%, 2% 85%);
+  }
+}

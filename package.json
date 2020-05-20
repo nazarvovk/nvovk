@@ -1,9 +1,9 @@
 {
   "name": "gatsby-starter-default",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Nazar Vovk Website",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Nazar Vovk <work@nvovk.com>",
   "dependencies": {
     "gatsby": "^2.17.11",
     "gatsby-image": "^2.2.31",
@@ -19,11 +19,12 @@
     "prop-types": "^15.7.2",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "react-helmet": "^5.2.1",
-    "react-icons": "^3.8.0"
+    "react-helmet": "^6.0.0",
+    "react-icons": "^3.8.0",
+    "use-sound": "^1.0.2"
   },
   "devDependencies": {
-    "prettier": "^1.19.1"
+    "prettier": "^2.0.5"
   },
   "keywords": [
     "gatsby"
