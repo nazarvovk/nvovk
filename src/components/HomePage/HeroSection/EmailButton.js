@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import useSound from 'use-sound';
 import styles from './EmailButton.module.scss';
-import hoverSound from '../../assets/sounds/EmailButton_hover.mp3';
+import hoverSound from '../../../assets/sounds/EmailButton_hover.mp3';
 
 const EmailButton = () => {
   const [playSound] = useSound(hoverSound);

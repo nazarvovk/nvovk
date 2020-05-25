@@ -4,6 +4,7 @@ import {
   Highlight_1,
   Highlight_2,
   Highlight_3,
+  ColorHighlight,
 } from '../../components/Highlight.module.scss';
 import JsImg from '../../assets/images/JS.svg.js';
 import ReactImg from '../../assets/images/React.svg.js';
@@ -20,11 +21,11 @@ const AboutSection = () => {
     <section className={styles.AboutSection}>
       <h3 className={styles.Title}>
         Hi, I&apos;m Nazar –<br />
-        web developer
+        web <span className={ColorHighlight}>developer</span>
         <br />
         helping startups build
         <br />
-        amazing products
+        <span className={ColorHighlight}>amazing products</span>
       </h3>
       <div className={styles.Tech}>
         <div className={styles.Text}>
@@ -65,8 +66,8 @@ const AboutSection = () => {
       <div className={styles.Code}>
         <div className={styles.Text}>
           Focusing on writing
-          <span className={styles.ColorHighlight}> clean, </span>elegant and
-          <span className={styles.ColorHighlight}> efficient code</span>
+          <span className={ColorHighlight}> clean, </span>elegant and
+          <span className={ColorHighlight}> efficient code</span>
         </div>
         <div className={styles.ImageContainer}>
           <CodeBackgroundImage className={styles.Image} />

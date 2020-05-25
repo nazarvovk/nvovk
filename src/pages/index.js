@@ -1,10 +1,11 @@
 import React from 'react';
-import SEO from '../components/seo';
-import styles from './index.module.scss';
-import HeroSection from './HomeComponents/HeroSection';
-import AboutSection from './HomeComponents/AboutSection';
+import SEO from 'components/seo';
+import styles from 'components/HomePage/index.module.scss';
+import HeroSection from 'components/HomePage/HeroSection/Hero';
+import AboutSection from 'components/HomePage/AboutSection';
+import WhatIDoSection from 'components/HomePage/WhatIDoSection';
 import clickSoundSrc from '../assets/sounds/click.mp3';
-import WhatIDoSection from './HomeComponents/WhatIDoSection';
+import './index.scss';
 
 document.onmousedown = () => {
   const clickSound = new Audio(clickSoundSrc);

@@ -1,6 +1,7 @@
 .WhatIDoSection {
   min-height: 100vh;
   position: relative;
+  padding-top: 1rem;
 }
 .Title {
   font-size: 4rem;
@@ -16,7 +17,7 @@
   animation: logoContainer 5s ease-in-out none infinite alternate;
 }
 @keyframes logoContainer {
-  45%{
+  0%, 45%{
     width: 12rem;
     height: 12rem;
   }
@@ -30,7 +31,7 @@
   }
 }
 .NVLogo {
-  height: 10rem;
+  height: 8rem;
   position: relative;
   top: 50%;
   left: 50%;

@@ -15,6 +15,16 @@
   height: 100vh;
   min-height: 500px;
   text-align: center;
+  @media screen and (max-width: 768px) {
+    font-size: 30rem;
+    height: unset;
+    min-height: unset;
+    top: 50%;
+    transform: translateY(-50%);
+    .FirstName{
+      margin-bottom: 4rem;
+    }
+  }
 }
 .FirstName {
   font-size: 100%;
@@ -22,6 +32,7 @@
   font-size: 0.6em;
   animation: floatLeft ease-in-out none infinite normal;
   animation-duration: var(--animation-duration);
+
 }
 .LastName {
   padding-left: 1ch; /* Compensate for different number of letters  */

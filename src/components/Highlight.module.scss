@@ -1,4 +1,3 @@
-
 .Highlight {
   color: var(--color-background);
   overflow: hidden;
@@ -80,4 +79,9 @@
   70% {
     clip-path: polygon(0% -5%, 105% -5%, 105% 75%, 0% 75%);
   }
+}
+.ColorHighlight {
+  color: transparent;
+  background: linear-gradient(-90deg, #4a4c78, #343657);
+  background-clip: text;
 }
