@@ -1,19 +1,14 @@
 import React, { useState } from 'react';
-import styles from './AboutSection.module.scss';
-import {
-  Highlight_1,
-  Highlight_2,
-  Highlight_3,
-  ColorHighlight,
-} from '../../components/Highlight.module.scss';
-import JsImg from '../../assets/images/JS.svg.js';
-import ReactImg from '../../assets/images/React.svg.js';
-import EcosystemImg from '../../assets/images/Ecosystem.svg.js';
-import CodeBackgroundImage from '../../assets/images/CodeBackgroundImage.svg.js';
+import styles from './About.module.scss';
+import JsImg from './JS.svg.js';
+import ReactImg from './React.svg.js';
+import EcosystemImg from './Ecosystem.svg.js';
+import CodeBackgroundImage from './CodeBackgroundImage.svg.js';
+import Highlight from '../../Highlight';
 
 const images = { js: JsImg, react: ReactImg, ecosystem: EcosystemImg };
 
-const AboutSection = () => {
+const About = () => {
   const [imageKey, setImageKey] = useState('js');
   const changeImage = (key) => () => setImageKey(key);
   const BackgroundImage = images[imageKey];
@@ -21,53 +16,53 @@ const AboutSection = () => {
     <section className={styles.AboutSection}>
       <h3 className={styles.Title}>
         Hi, I&apos;m Nazar –<br />
-        web <span className={ColorHighlight}>developer</span>
+        web <Highlight color>developer</Highlight>
         <br />
         helping startups build
         <br />
-        <span className={ColorHighlight}>amazing products</span>
+        <Highlight color>amazing products</Highlight>
       </h3>
-      <div className={styles.Tech}>
+      <div className={styles.Container}>
         <div className={styles.Text}>
           Specializing in
           <br />
-          <span
+          <Highlight
+            v1
             onClick={changeImage('js')}
             onMouseEnter={changeImage('js')}
-            className={Highlight_1}
           >
             JavaScript,
-          </span>
+          </Highlight>
           <br />
-          <span
+          <Highlight
+            v2
             onClick={changeImage('react')}
             onMouseEnter={changeImage('react')}
-            className={Highlight_2}
           >
             React,
-          </span>
+          </Highlight>
           <br />
           and the
           <br />
           extensive{' '}
-          <span
+          <Highlight
+            v3
             onClick={changeImage('ecosystem')}
             onMouseEnter={changeImage('ecosystem')}
-            className={Highlight_3}
           >
             JS ecosystem
-          </span>
+          </Highlight>
         </div>
         <div className={styles.ImageContainer}>
           <BackgroundImage className={styles.Image} />
           <BackgroundImage className={styles.Image} />
         </div>
       </div>
-      <div className={styles.Code}>
+      <div className={styles.ContainerSecondary}>
         <div className={styles.Text}>
           Focusing on writing
-          <span className={ColorHighlight}> clean, </span>elegant and
-          <span className={ColorHighlight}> efficient code</span>
+          <Highlight color> clean, </Highlight>elegant and
+          <Highlight color> efficient code</Highlight>
         </div>
         <div className={styles.ImageContainer}>
           <CodeBackgroundImage className={styles.Image} />
@@ -78,4 +73,4 @@ const AboutSection = () => {
   );
 };
 
-export default AboutSection;
+export default About;

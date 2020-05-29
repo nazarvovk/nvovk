@@ -21,16 +21,24 @@
   cursor: default;
   font-size: 4rem;
   font-weight: 400;
+  margin-bottom: 64px;
 }
 .Title {
   font-size: 4rem;
   font-weight: 700;
   max-width: 56rem;
   margin-bottom: 8rem;
+  @media screen and (max-width: 768px) {
+    margin-bottom: 100px;
+  }
 }
-.Tech {
+.Container {
   position: relative;
-  min-height: 100vh;
+  min-height: 32rem;
+  margin-bottom: 80px;
+  @media screen and (max-width: 768px) {
+    // margin-bottom: 0;
+  }
   .Text {
     position: absolute;
     top: 50%;
@@ -39,36 +47,28 @@
   .Image {
     position: absolute;
     z-index: -1;
-    top: 50%;
     transform: translateY(-50%);
-    right: -12rem;
-    height: 100vh;
+    top: 50%;
+    left: 50%;
     fill: var(--color-background-lighter);
+    width: 70%;
   }
   .ImageContainer {
     @include svgGlitch('glitch', 20, var(--color-background-lighter), -5px);
   }
 }
-.Code {
-  position: relative;
-  min-height: 100vh;
-  .Text {
+.ContainerSecondary {
+  @extend .Container;
+  &:last-child .Text {
     position: absolute;
-    top: 50%;
     right: 0;
-    transform: translateY(-50%);
     text-align: right;
-    max-width: 40rem;
+    width: 40rem;
+    max-width: 70%;
   }
   .Image {
-    position: absolute;
-    z-index: -1;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50%;
-    fill: var(--color-background-lighter);
-  }
-  .ImageContainer {
-    @include svgGlitch('glitch', 20, var(--color-background-lighter), -7px);
+    max-width: 50%;
+    left: unset;
+    right: 50%;
   }
 }

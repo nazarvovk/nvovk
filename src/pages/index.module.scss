@@ -1,8 +1,9 @@
-
 .Container {
   box-sizing: border-box;
-  margin: 0 8rem;
+  max-width: 1650px;
+  margin: auto;
+  padding: 0 6rem;
   @media screen and (max-width: 768px) {
-    margin: 0 4rem;
+    padding: 0 3rem;
   }
 }

@@ -3,7 +3,8 @@ module.exports = {
   siteMetadata: {
     title: `Nazar Vovk | Web Developer`,
     description: `Nazar is a frontend-oriented fullstack developer`,
-    author: `@nazarvovk`,
+    github: `@nazarvovk`,
+    authorTwitter: `@nvovk_`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -22,8 +23,8 @@ module.exports = {
         name: `Nazar Vovk`,
         short_name: `Nazar Vovk`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#060719`,
+        theme_color: `#060719`,
         display: `minimal-ui`,
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
       },

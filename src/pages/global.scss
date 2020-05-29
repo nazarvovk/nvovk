@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'Futura';
+  src: url('../assets/fonts/FuturaMedium.ttf');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Futura';
+  src: url('../assets/fonts/FuturaDemi.ttf');
+  font-weight: 700;
+}
+
+:root {
+  --color-background: #060719;
+  --color-background-lighter: #0e0f25;
+  font-size: 1vw;
+  font-family: 'Futura', Avenir, Arial, Helvetica, sans-serif;
+  @media screen and (max-width: 1024px) {
+    font-size: 1.4vw;
+  }
+  @media screen and (max-width: 520px) {
+    font-size: 2vw;
+  }
+  overflow-x: hidden;
+}
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background-color: var(--color-background);
+  color: #fff;
+}
+* {
+  box-sizing: border-box;
+}

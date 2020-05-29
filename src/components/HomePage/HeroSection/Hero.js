@@ -7,7 +7,7 @@ import EmailButton from './EmailButton';
 
 const Hero = () => {
   return (
-    <section className={styles.HeroSection}>
+    <section className={styles.Hero}>
       <BackgroundName />
       <div className={styles.CenterText}>
         <span>frontend-oriented</span>

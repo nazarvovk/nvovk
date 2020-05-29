@@ -82,6 +82,7 @@
 }
 .ColorHighlight {
   color: transparent;
-  background: linear-gradient(-90deg, #4a4c78, #343657);
+  background: linear-gradient(90deg, hsl(237, 24%, 45%), hsl(237, 25%, 50%));
   background-clip: text;
+  font-weight: 700;
 }

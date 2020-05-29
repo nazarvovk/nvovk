@@ -1,0 +1,18 @@
+.Statistics {
+  font-size: 4rem;
+  display: flex;
+  justify-content: space-around;
+  .Item{
+    max-width: 20rem;
+    margin: 2rem;
+    line-height: 0.9;
+    .Number {
+      font-size: 5rem;
+      display: block;
+    }
+    &:nth-child(2) .Number{
+      transform: translateX(-0.5rem);
+    }
+  } 
+  margin-bottom: 8rem;
+}

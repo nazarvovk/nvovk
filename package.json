@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Nazar Vovk <work@nvovk.com>",
   "dependencies": {
+    "classnames": "^2.2.6",
     "gatsby": "^2.17.11",
     "gatsby-image": "^2.2.31",
     "gatsby-plugin-google-analytics": "^2.1.29",
