@@ -13,7 +13,7 @@ const About = () => {
   const changeImage = (key) => () => setImageKey(key);
   const BackgroundImage = images[imageKey];
   return (
-    <section className={styles.AboutSection}>
+    <section className={styles.AboutSection} id="about">
       <h3 className={styles.Title}>
         Hi, I&apos;m Nazar –<br />
         web <Highlight color>developer</Highlight>

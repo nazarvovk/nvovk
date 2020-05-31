@@ -21,7 +21,7 @@
     min-height: unset;
     top: 50%;
     transform: translateY(-50%);
-    .FirstName{
+    .FirstName {
       margin-bottom: 0.5em;
     }
   }
@@ -32,7 +32,6 @@
   font-size: 0.6em;
   animation: floatLeft ease-in-out none infinite normal;
   animation-duration: var(--animation-duration);
-
 }
 .LastName {
   padding-left: 1ch; /* Compensate for different number of letters  */
@@ -43,23 +42,23 @@
 }
 @keyframes floatLeft {
   0% {
-    transform: translateX(-10vw);
+    transform: translate3d(-10vw, 0, 0);
   }
   50% {
-    transform: translateX(-20vw);
+    transform: translate3d(-20vw, 0, 0);
   }
   100% {
-    transform: translateX(-10vw);
+    transform: translate3d(-10vw, 0, 0);
   }
 }
 @keyframes floatRight {
   0% {
-    transform: translateX(15vw);
+    transform: translate3d(15vw, 0, 0);
   }
   50% {
-    transform: translateX(25vw);
+    transform: translate3d(25vw, 0, 0);
   }
   100% {
-    transform: translateX(15vw);
+    transform: translate3d(15vw, 0, 0);
   }
 }

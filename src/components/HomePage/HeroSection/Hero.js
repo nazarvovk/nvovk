@@ -1,9 +1,10 @@
 import React from 'react';
 import styles from './Hero.module.scss';
-import { Highlight_1 } from '../../../components/Highlight.module.scss';
+
 import BackgroundName from './BackgroundName';
 import dividerFade from './divider_fade.png';
 import EmailButton from './EmailButton';
+import Highlight from '../../Highlight';
 
 const Hero = () => {
   return (
@@ -11,7 +12,7 @@ const Hero = () => {
       <BackgroundName />
       <div className={styles.CenterText}>
         <span>frontend-oriented</span>
-        <span className={Highlight_1}>fullstack developer</span>
+        <Highlight v1>fullstack developer</Highlight>
       </div>
       <EmailButton />
       <img className={styles.DividerFade} src={dividerFade} />

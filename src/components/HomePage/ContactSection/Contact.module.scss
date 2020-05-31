@@ -1,5 +1,10 @@
 .Contact {
-  padding: 4rem;
+  margin-top: 10rem;
+  padding: 4rem 8rem;
+  @media screen and (max-width: 768px) {
+    padding: 2rem;
+  }
+  margin-bottom: 8rem;
   border: 3px solid white;
   h2 {
     font-size: 4rem;
@@ -8,7 +13,7 @@
   span {
     display: block;
     font-size: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
   }
   form {
     display: flex;
@@ -16,38 +21,105 @@
     justify-content: space-between;
     margin: 0 -1rem;
   }
-  .InputContainer {
-    flex: 1 1 auto;
-    min-width: 28rem;
-    width: 40%;
-    margin: 0 1rem;
-    margin-bottom: 2rem;
-    &:first-child{
-      margin-right: 1rem;
-    }
-    label {
-      font-size: 1.5rem;
-    }
-    input {
-      font-size: 2rem;
-      background: none;
-      color: white;
-      border: none;
-      border-bottom: 2px solid white;
-      width: 100%;
-      height: 4rem;
-    }
+  label {
+    font-size: 1.5rem;
+    font-weight: 700;
   }
-  textarea {
+}
+.InputContainer {
+  flex: 1 1 auto;
+  min-width: 28rem;
+  width: 40%;
+  margin: 0 1rem;
+  margin-bottom: 4rem;
+  &:first-child {
+    margin-right: 1rem;
+  }
+  input {
     font-size: 2rem;
     background: none;
     color: white;
     border: none;
-    border-bottom: 2px solid #ffffff40;
-    display: block;
-    flex-basis: 100%;
-    flex-shrink: 0;
-    margin: 0 1rem;
+    width: 100%;
+    font-family: inherit;
+    height: 4rem;
+    transition: all ease-in-out 0.2s;
+    border-bottom: 3px solid #ffffffa0;
+    &:hover {
+      border-bottom: 3px solid #ffffff;
+    }
   }
-  margin-bottom: 8rem;
+}
+.TextareaContainer {
+  flex-basis: calc(100% - 2rem);
+  flex-shrink: 0;
+  margin: 0 1rem;
+  margin-bottom: 6rem;
+  label {
+    margin-bottom: 1rem;
+  }
+  textarea {
+    padding: 1rem;
+    padding-left: 0;
+    resize: none;
+    font-size: 2rem;
+    background: none;
+    display: block;
+    color: white;
+    border: none;
+    transition: all ease-in-out 0.2s;
+    font-family: inherit;
+    border-bottom: 3px solid #ffffffa0;
+    &:hover {
+      border-bottom: 3px solid #ffffff;
+    }
+    width: 100%;
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    scrollbar-width: none;
+    line-height: 1;
+    min-height: 6rem;
+  }
+}
+
+.SendButton {
+  position: relative;
+  cursor: pointer;
+  color: white;
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  border: 3px solid #ffffff;
+  background: none;
+  margin: 0 1rem;
+  overflow: hidden;
+  transition: all ease-in-out 0.1s;
+  height: 5rem;
+  line-height: 1;
+  text-align: justify;
+  max-width: min-content;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all ease-in-out 0.1s;
+    transform: translateX(-100%);
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: -1;
+  }
+  &:hover {
+    color: var(--color-background);
+    width: 100%;
+    &::before{
+      transform: translateX(0);
+    }
+    &::after{
+      margin-left: 1rem;
+      content: '⇢';
+    }
+  }
 }

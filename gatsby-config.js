@@ -3,8 +3,10 @@ module.exports = {
   siteMetadata: {
     title: `Nazar Vovk | Web Developer`,
     description: `Nazar is a frontend-oriented fullstack developer`,
-    github: `@nazarvovk`,
+    authorGithub: `@nazarvovk`,
+    authorGithubLink: `https://github.com/nazarvovk`,
     authorTwitter: `@nvovk_`,
+    authorTwitterLink: `https://twitter.com/nvovk_`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

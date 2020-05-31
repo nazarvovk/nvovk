@@ -21,7 +21,7 @@
   cursor: default;
   font-size: 4rem;
   font-weight: 400;
-  margin-bottom: 64px;
+  padding: 4rem 0;
 }
 .Title {
   font-size: 4rem;
@@ -36,9 +36,6 @@
   position: relative;
   min-height: 32rem;
   margin-bottom: 80px;
-  @media screen and (max-width: 768px) {
-    // margin-bottom: 0;
-  }
   .Text {
     position: absolute;
     top: 50%;
@@ -67,8 +64,9 @@
     max-width: 70%;
   }
   .Image {
-    max-width: 50%;
+    width: 50%;
+    max-width: 450px;
     left: unset;
-    right: 50%;
+    right: 50vw;
   }
 }

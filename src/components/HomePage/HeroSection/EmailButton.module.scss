@@ -23,7 +23,7 @@
     display: contents;
   }
   &:hover {
-    border: 4px solid white;
+    border: 3px solid white;
     background: none;
     padding: 0 2ch 0 1rem;
     width: 100%;
@@ -44,9 +44,4 @@
 .Icon {
   fill: var(--color-background);
   min-width: 56px;
-}
-@keyframes widthExpand {
-  0% {
-    max-width: 0;
-  }
 }

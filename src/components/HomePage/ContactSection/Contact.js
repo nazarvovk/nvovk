@@ -4,21 +4,34 @@ import Highlight from '../../Highlight';
 
 const Contact = () => {
   return (
-    <div className={styles.Contact}>
+    <div id="contact" className={styles.Contact}>
       <h2>Send me a message</h2>
       <Highlight color>
         Got an interesting project for me, or just want to chat?
       </Highlight>
-      <form>
+      <form name="contact" netlify="true">
         <div className={styles.InputContainer}>
-          <label>Your Name</label>
-          <input />
+          <label>Name</label>
+          <input name="name" placeholder="Enter your name" />
         </div>
         <div className={styles.InputContainer}>
-          <label>Your Email</label>
-          <input />
+          <label>Email</label>
+          <input
+            name="email"
+            type="email"
+            placeholder="Enter your email address"
+          />
         </div>
-        <textarea rows={3}></textarea>
+        <div className={styles.TextareaContainer}>
+          <label>Your Message</label>
+          <textarea
+            rows={2}
+            placeholder="Hi, we have a project you might be interested in. How soon can we discuss this?"
+          ></textarea>
+        </div>
+        <button className={styles.SendButton} type="submit">
+          Send
+        </button>
       </form>
     </div>
   );

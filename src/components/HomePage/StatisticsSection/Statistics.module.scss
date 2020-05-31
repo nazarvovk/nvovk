@@ -1,5 +1,6 @@
 .Statistics {
   font-size: 4rem;
+  padding: 8rem 0;
   display: flex;
   justify-content: space-around;
   .Item{
@@ -14,5 +15,5 @@
       transform: translateX(-0.5rem);
     }
   } 
-  margin-bottom: 8rem;
+  margin-bottom: 16rem;
 }

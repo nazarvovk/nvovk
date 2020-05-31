@@ -5,7 +5,7 @@ import Highlight from '../../Highlight';
 
 const Services = () => {
   return (
-    <section className={styles.Tasks}>
+    <section className={styles.Tasks} id="services">
       <h4 className={styles.Title}>
         What can I do for <Highlight v3>you</Highlight>?
       </h4>
