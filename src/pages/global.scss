@@ -22,6 +22,9 @@
   }
   overflow-x: hidden;
 }
+::-webkit-scrollbar{
+  display: none;
+}
 ::selection {
   background: #575a8e;
   color: white;
@@ -35,4 +38,5 @@ body {
 * {
   box-sizing: border-box;
   font-family: inherit;
+  scrollbar-width: none;
 }

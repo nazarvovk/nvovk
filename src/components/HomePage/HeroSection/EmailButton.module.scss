@@ -19,10 +19,10 @@
   max-width: min-content;
   overflow: hidden;
   text-decoration: none;
-  a{
+  a {
     display: contents;
   }
-  &:hover {
+  &.Hovered {
     border: 3px solid white;
     background: none;
     padding: 0 2ch 0 1rem;

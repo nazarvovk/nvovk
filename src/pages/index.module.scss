@@ -22,12 +22,31 @@ footer {
 }
 .Cursor {
   z-index: 10000;
-  position: absolute;
-  transition: all ease-out 0.5s;
+  position: fixed;
+  transition: all ease-out 0.2s;
   width: 32px;
   height: 32px;
   fill: white;
   pointer-events: none;
   transform: translate(50vw, 50vh);
   opacity: 0;
+  @media (pointer: none) {
+    display: none;
+  }
+}
+.Progress {
+  z-index: 5000;
+  position: fixed;
+  width: 4rem;
+  height: 4rem;
+  right: 4rem;
+  top: 2rem;
+  fill: var(--color-background);
+  opacity: 0;
+  rect {
+    width: 100%;
+    height: 100%;
+    stroke: white;
+    stroke-width: 6px;
+  }
 }
