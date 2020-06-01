@@ -1,38 +1,52 @@
-body{
-  margin: 0;
-  padding: 0;
-  background-color: #000;
-  color: #fff;
-  font-family: 'Courier New', Courier, monospace;
+.Container {
+  box-sizing: border-box;
+  max-width: 1650px;
+  margin: auto;
+  padding: 0 6rem;
+  @media screen and (max-width: 768px) {
+    padding: 0 3rem;
+  }
 }
-.mainText{
-  position: absolute;
+footer {
   width: 100%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  padding: 2rem 0;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  a {
+    margin-left: 1rem;
+  }
+  svg {
+    fill: white;
+  }
 }
-.paragraph{
-  margin: 12px;
-  text-align: center;
+.Cursor {
+  z-index: 10000;
+  position: fixed;
+  transition: all ease-out 0.2s;
+  width: 32px;
+  height: 32px;
+  fill: white;
+  pointer-events: none;
+  transform: translate(50vw, 50vh);
+  opacity: 0;
+  @media (pointer: none) {
+    display: none;
+  }
 }
-.links{
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-.icon{
-  color: #fff;
-}
-a{
-  color: #fff;
-}
-.hireParagraph{
-  margin-top: 72px;
+.Progress {
+  z-index: 5000;
+  position: fixed;
+  width: 4rem;
+  height: 4rem;
+  right: 4rem;
+  top: 2rem;
+  fill: var(--color-background);
+  opacity: 0;
+  rect {
+    width: 100%;
+    height: 100%;
+    stroke: white;
+    stroke-width: 6px;
+  }
 }

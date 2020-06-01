@@ -1,8 +1,12 @@
+const path = require('path');
 module.exports = {
   siteMetadata: {
     title: `Nazar Vovk | Web Developer`,
-    description: `Hey, I'm Nazar and this is a website about me.`,
-    author: `@nazarvovk`,
+    description: `Nazar is a frontend-oriented fullstack developer`,
+    authorGithub: `@nazarvovk`,
+    authorGithubLink: `https://github.com/nazarvovk`,
+    authorTwitter: `@nvovk_`,
+    authorTwitterLink: `https://twitter.com/nvovk_`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -18,11 +22,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Nazar Vovk`,
+        short_name: `Nazar Vovk`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#060719`,
+        theme_color: `#060719`,
         display: `minimal-ui`,
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
       },
@@ -30,12 +34,21 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "UA-153567385-1",
+        trackingId: 'UA-153567385-1',
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
-    `gatsby-plugin-sass`
+    `gatsby-plugin-sass`,
+    {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        src: path.join(__dirname, 'src'),
+        pages: path.join(__dirname, 'src/pages'),
+        components: path.join(__dirname, 'src/components'),
+        assets: path.join(__dirname, 'src/assets'),
+      },
+    },
   ],
-}
+};

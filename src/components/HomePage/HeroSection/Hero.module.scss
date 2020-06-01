@@ -1,0 +1,36 @@
+.Hero {
+  min-height: 100vh;
+  margin-bottom: 20rem;
+}
+.DividerFade {
+  position: absolute;
+  user-select: none;
+  bottom: -2rem;
+  left: 0;
+  transform: translateY(70%);
+  width: 100%;
+  min-height: 40vh;
+  mix-blend-mode: luminosity;
+  z-index: -1;
+  object-fit: cover;
+}
+
+.CenterText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  white-space: nowrap;
+  cursor: default;
+  span {
+    display: block;
+    z-index: 10;
+    &:first-child {
+      transform: translateX(-5%);
+    }
+    &:last-child {
+      transform: translateX(5%);
+    }
+  }
+}

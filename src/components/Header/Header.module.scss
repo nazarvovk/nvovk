@@ -1,0 +1,33 @@
+.Header {
+  font-size: 2rem;
+  z-index: 1000;
+  width: 100%;
+  position: relative;
+  top: 2rem;
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  li {
+    display: block;
+    margin-right: 2rem;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  ul {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    font-size: 2.5rem;
+    margin: 0;
+    @media screen and (max-width: 768px) {
+      justify-content: space-between;
+    }
+  }
+}
+.BlogLink {
+  cursor: not-allowed;
+  opacity: 0.5;
+  width: 4ch;
+}

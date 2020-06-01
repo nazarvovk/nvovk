@@ -1,0 +1,105 @@
+.Tasks {
+  min-height: 500px;
+  margin-bottom: 80px;
+  padding: 4rem 0;
+}
+.Title {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 4rem;
+  position: relative;
+}
+.Container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.LogoContainer {
+  width: 40%;
+  min-width: 16rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.LogoFrame {
+  position: relative;
+  left: -1rem;
+  width: 12rem;
+  height: 12rem;
+  animation: LogoFrame 5s linear none infinite alternate;
+}
+@keyframes LogoFrame {
+  0%,
+  48% {
+    width: 12rem;
+    height: 12rem;
+  }
+  50% {
+    width: 12rem;
+    height: 16rem;
+  }
+  52%,
+  100% {
+    width: 16rem;
+    height: 16rem;
+  }
+}
+.NVLogo {
+  height: 8rem;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.corner_tl {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4rem;
+  height: 4rem;
+  border-top: 0.25rem solid white;
+  border-left: 0.25rem solid white;
+}
+.corner_tr {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4rem;
+  height: 4rem;
+  border-top: 0.25rem solid white;
+  border-right: 0.25rem solid white;
+}
+.corner_bl {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 4rem;
+  height: 4rem;
+  border-bottom: 0.25rem solid white;
+  border-left: 0.25rem solid white;
+}
+.corner_br {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 4rem;
+  height: 4rem;
+  border-bottom: 0.25rem solid white;
+  border-right: 0.25rem solid white;
+}
+.ListContainer {
+  font-size: 2.5rem;
+  line-height: 1;
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.ListItem {
+  margin-bottom: 4rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

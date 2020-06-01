@@ -1,0 +1,47 @@
+.Button {
+  height: 72px;
+  min-width: 72px;
+  position: absolute;
+  left: 5vw;
+  bottom: 5vh;
+  cursor: pointer;
+  z-index: 10;
+  background-color: white;
+  border: none;
+  padding: 8px;
+  box-sizing: border-box;
+  text-align: center;
+  transition: all ease-in-out 0.2s;
+  display: flex;
+  align-items: center;
+  font-size: 28px;
+  font-family: inherit;
+  max-width: min-content;
+  overflow: hidden;
+  text-decoration: none;
+  a {
+    display: contents;
+  }
+  &.Hovered {
+    border: 3px solid white;
+    background: none;
+    padding: 0 2ch 0 1rem;
+    width: 100%;
+    transform: scale(1.05);
+    &::after {
+      content: 'email me';
+      white-space: nowrap;
+      color: white;
+      transform: translateY(-10%);
+      margin-left: 2ch;
+      max-width: 100%;
+    }
+    .Icon {
+      fill: white;
+    }
+  }
+}
+.Icon {
+  fill: var(--color-background);
+  min-width: 56px;
+}
