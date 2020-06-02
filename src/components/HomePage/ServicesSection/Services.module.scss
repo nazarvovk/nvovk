@@ -28,6 +28,7 @@
   width: 12rem;
   height: 12rem;
   animation: LogoFrame 5s linear none infinite alternate;
+  animation-play-state: paused;
 }
 @keyframes LogoFrame {
   0%,

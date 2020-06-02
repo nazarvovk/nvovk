@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import styles from './Services.module.scss';
 import NVLogo from 'assets/images/nv.svg';
 import Highlight from '../../Highlight';
 
 const Services = () => {
+  const logoFrameRef = useRef();
+  useEffect(() => {
+    logoFrameRef.current.style.animationPlayState = 'running';
+  }, []);
   return (
     <section className={styles.Tasks} id="services">
       <h4 className={styles.Title}>
@@ -11,7 +15,7 @@ const Services = () => {
       </h4>
       <div className={styles.Container}>
         <div className={styles.LogoContainer}>
-          <div className={styles.LogoFrame}>
+          <div className={styles.LogoFrame} ref={logoFrameRef}>
             <div className={styles.corner_tl} />
             <div className={styles.corner_tr} />
             <img src={NVLogo} alt="" className={styles.NVLogo} />
