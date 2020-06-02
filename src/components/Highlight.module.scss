@@ -1,4 +1,5 @@
 .Highlight {
+  position: relative;
   color: var(--color-background);
   overflow: hidden;
   border: none;
@@ -81,8 +82,6 @@
   }
 }
 .ColorHighlight {
-  color: transparent;
-  background: linear-gradient(90deg, hsl(237, 24%, 45%), hsl(237, 25%, 50%));
-  background-clip: text;
+  color: hsl(237, 24%, 45%);
   font-weight: 700;
 }
