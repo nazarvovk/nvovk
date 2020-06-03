@@ -1,29 +1,16 @@
-import React, { useRef, useState } from 'react';
-import useSound from 'use-sound';
+import React from 'react';
 import styles from './EmailButton.module.scss';
-import hoverSound from '../../../assets/sounds/EmailButton_hover.mp3';
 import cx from 'classnames';
+import { useHoverButton } from '../../../utils';
 
 const EmailButton = () => {
-  const [playSound] = useSound(hoverSound, { volume: 0.1 });
-  const hoverTimer = useRef(null);
-  const [isHovered, setIsHovered] = useState(false);
-  const handleHover = () => {
-    hoverTimer.current = setTimeout(() => {
-      playSound();
-      setIsHovered(true);
-    }, 200);
-  };
+  const [isHovered, buttonProps] = useHoverButton();
 
   return (
     <a href="mailto:nazarvovk.work@gmail.com">
       <button
         className={cx(styles.Button, { [styles.Hovered]: isHovered })}
-        onMouseEnter={handleHover}
-        onMouseLeave={() => {
-          clearTimeout(hoverTimer.current);
-          setIsHovered(false);
-        }}
+        {...buttonProps}
       >
         <svg
           className={styles.Icon}

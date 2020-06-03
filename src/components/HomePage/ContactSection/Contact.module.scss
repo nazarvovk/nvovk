@@ -12,7 +12,7 @@
   }
   span {
     display: block;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin-bottom: 4rem;
   }
   form {
@@ -49,6 +49,7 @@
     &:hover {
       border-bottom: 3px solid #ffffff;
     }
+    box-shadow: none;
   }
 }
 .TextareaContainer {
@@ -82,6 +83,18 @@
     scrollbar-width: none;
     line-height: 1;
     min-height: 6rem;
+    box-shadow: none;
+  }
+}
+.ErrorLabel {
+  border-left: 3px solid #ba1919;
+  padding-left: 0.5rem;
+  & + input,
+  & + textarea {
+    border-bottom: 3px solid #ba1919a0;
+    &:hover {
+      border-bottom: 3px solid #ba1919;
+    }
   }
 }
 
@@ -113,7 +126,7 @@
     background-color: white;
     z-index: -1;
   }
-  &:hover {
+  &.Hovered {
     color: var(--color-background);
     width: 100%;
     &::before {
