@@ -2,8 +2,11 @@
   height: 72px;
   min-width: 72px;
   position: absolute;
-  left: 5vw;
   bottom: 5vh;
+  left: 6rem;
+  @media screen and (max-width: 768px) {
+    left: 3rem;
+  }
   cursor: pointer;
   z-index: 10;
   background-color: white;
@@ -31,7 +34,7 @@
       display: block;
       white-space: nowrap;
       color: white;
-      transform: translateY(-10%);
+      transform: translateY(-20%);
       margin-left: 2ch;
       max-width: 100%;
       line-height: 0;
