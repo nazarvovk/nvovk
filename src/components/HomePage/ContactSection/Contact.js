@@ -77,6 +77,7 @@ const Contact = () => {
         data-netlify="true"
         data-netlify-honeypot="bot-field"
       >
+        <input type="hidden" name="form-name" value="contact" />
         <div className={styles.InputContainer}>
           {errors.name && touched.name ? (
             <label className={styles.ErrorLabel}>{errors.name}</label>
@@ -87,6 +88,7 @@ const Contact = () => {
             value={values.name}
             onChange={handleChange('name')}
             onBlur={handleBlur('name')}
+            name="name"
             placeholder="Enter your name"
           />
         </div>
@@ -101,6 +103,7 @@ const Contact = () => {
             onChange={handleChange('email')}
             onBlur={handleBlur('email')}
             type="email"
+            name="email"
             placeholder="Enter your email address"
           />
         </div>
@@ -114,6 +117,7 @@ const Contact = () => {
             value={values.message}
             onChange={handleChange('message')}
             onBlur={handleBlur('message')}
+            name="message"
             rows={2}
             placeholder="Hi, we have a project you might be interested in. How soon can we discuss this?"
           ></textarea>
