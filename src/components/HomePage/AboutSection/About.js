@@ -16,11 +16,11 @@ const About = () => {
     <section className={styles.AboutSection} id="about">
       <h3 className={styles.Title}>
         Hi, I&apos;m Nazar –<br />
-        web <Highlight color>developer</Highlight>
+        web <Highlight outline>developer</Highlight>
         <br />
         helping startups build
         <br />
-        <Highlight color>amazing products</Highlight>
+        <Highlight outline>amazing products</Highlight>
       </h3>
       <div className={styles.Container}>
         <div className={styles.Text}>
@@ -61,8 +61,8 @@ const About = () => {
       <div className={styles.ContainerSecondary}>
         <div className={styles.Text}>
           Focusing on writing
-          <Highlight color> clean, </Highlight>elegant and
-          <Highlight color> efficient code</Highlight>
+          <Highlight outline> clean, </Highlight>elegant and
+          <Highlight outline> efficient code</Highlight>
         </div>
         <div className={styles.ImageContainer}>
           <CodeBackgroundImage className={styles.Image} />

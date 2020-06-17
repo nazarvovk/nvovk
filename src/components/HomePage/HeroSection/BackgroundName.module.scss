@@ -1,6 +1,4 @@
 .BackgroundName {
-  --animation-duration: 25s;
-
   user-select: none;
   position: absolute;
   top: 0;
@@ -10,7 +8,9 @@
   overflow: hidden;
   font-size: 100vh;
   font-weight: 700;
-  color: var(--color-background-lighter);
+  letter-spacing: -0.025em;
+  -webkit-text-stroke: 4px var(--color-background-lighter);
+  color: transparent;
   line-height: 0.8;
   height: 100vh;
   min-height: 500px;
@@ -30,35 +30,9 @@
   font-size: 100%;
   display: block;
   font-size: 0.6em;
-  animation: floatLeft ease-in-out none infinite normal;
-  animation-duration: var(--animation-duration);
 }
 .LastName {
-  padding-left: 1ch; /* Compensate for different number of letters  */
+  padding-left: 0.25ch; /* Compensate for different number of letters  */
   display: block;
   font-size: 0.6em;
-  animation: floatRight ease-in-out none infinite reverse;
-  animation-duration: var(--animation-duration);
-}
-@keyframes floatLeft {
-  0% {
-    transform: translate3d(-10vw, 0, 0);
-  }
-  50% {
-    transform: translate3d(-20vw, 0, 0);
-  }
-  100% {
-    transform: translate3d(-10vw, 0, 0);
-  }
-}
-@keyframes floatRight {
-  0% {
-    transform: translate3d(15vw, 0, 0);
-  }
-  50% {
-    transform: translate3d(25vw, 0, 0);
-  }
-  100% {
-    transform: translate3d(15vw, 0, 0);
-  }
 }

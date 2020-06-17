@@ -1,8 +1,8 @@
 const path = require('path');
 module.exports = {
   siteMetadata: {
-    title: `Nazar Vovk | Web Developer`,
-    description: `Nazar is a frontend-oriented fullstack developer`,
+    title: `Nazar Vovk – Web Developer`,
+    description: `Nazar Vovk, frontend-oriented fullstack developer. I work with JavaScript, React and many more technologies to bring your ideas to life.`,
     authorGithub: `@nazarvovk`,
     authorGithubLink: `https://github.com/nazarvovk`,
     authorTwitter: `@nvovk_`,

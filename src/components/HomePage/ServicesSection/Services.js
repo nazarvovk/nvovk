@@ -7,7 +7,7 @@ const Services = () => {
   return (
     <section className={styles.Tasks} id="services">
       <h4 className={styles.Title}>
-        What can I do for <Highlight v3>you</Highlight>?
+        What can I do for <Highlight outline>you</Highlight>?
       </h4>
       <div className={styles.Container}>
         <div className={styles.LogoContainer}>

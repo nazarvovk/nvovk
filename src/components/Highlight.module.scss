@@ -81,7 +81,12 @@
     clip-path: polygon(0% -5%, 105% -5%, 105% 75%, 0% 75%);
   }
 }
-.ColorHighlight {
+.Color {
   color: hsl(237, 24%, 45%);
+  font-weight: 700;
+}
+.Outline {
+  color: transparent;
+  -webkit-text-stroke: 1.4px white;
   font-weight: 700;
 }
