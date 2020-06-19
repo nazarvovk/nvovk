@@ -1,6 +1,9 @@
+import PropTypes from 'prop-types';
 import useSound from 'use-sound';
-import { useRef, useState } from 'react';
-import hoverSound from 'assets/sounds/EmailButton_hover.mp3';
+import React, { useRef, useState } from 'react';
+import hoverSound from 'assets/sounds/button_hover.mp3';
+import { useInView } from 'react-intersection-observer';
+import { motion } from 'framer-motion';
 
 export function isTouchDevice() {
   var prefixes = ' -webkit- -moz- -o- -ms- '.split(' ');
@@ -40,4 +43,39 @@ export const useHoverButton = () => {
   };
 
   return [isHovered, buttonProps];
+};
+
+const fadeUpVariants = {
+  out: {
+    y: 40,
+    opacity: 0,
+  },
+  in: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      delay: 0.2,
+      ease: 'easeOut',
+    },
+  },
+};
+export const FadeUpDiv = ({ children, threshold = 1, ...props }) => {
+  const [ref, inView] = useInView({ threshold, triggerOnce: true });
+  return (
+    <motion.div
+      initial="out"
+      animate={inView ? 'in' : 'out'}
+      variants={fadeUpVariants}
+      ref={ref}
+      {...props}
+    >
+      {children}
+    </motion.div>
+  );
+};
+
+FadeUpDiv.propTypes = {
+  children: PropTypes.node.isRequired,
+  threshold: PropTypes.number,
 };

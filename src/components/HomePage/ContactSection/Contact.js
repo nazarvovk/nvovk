@@ -4,7 +4,8 @@ import Highlight from '../../Highlight';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import cx from 'classnames';
-import { useHoverButton } from '../../../utils';
+import { useHoverButton, FadeUpDiv } from '../../../utils';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const Check = () => (
   <svg x="0px" y="0px" viewBox="0 0 448 448" className={styles.CheckIcon}>
@@ -45,6 +46,25 @@ const handleSubmit = (values) => {
   ]);
 };
 
+const labelVariants = {
+  initial: {
+    opacity: 0,
+  },
+  default: {
+    opacity: [1, 0, 1, 0, 1],
+    transition: {
+      duration: 0.5,
+      times: [0, 0.1, 0.2, 0.3, 0.8],
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.1,
+    },
+  },
+};
+
 const Contact = () => {
   const [isSent, setIsSent] = useState(false);
   const [isSubmitButtonHovered, submitButtonHandlers] = useHoverButton();
@@ -62,11 +82,33 @@ const Contact = () => {
     validationSchema,
     validateOnChange: false,
   });
-  const handleChange = (name) => (e) => setFieldValue(name, e.target.value);
-  const handleBlur = (name) => () => setFieldTouched(name, true);
+  const handleChange = (name) => (e) => {
+    setFieldValue(name, e.target.value, false);
+  };
+  const handleBlur = (name) => (e) => {
+    setFieldTouched(name, true);
+    setFieldTouched(name, !!e.target.value);
+  };
+  const renderLabel = (name, label) => {
+    const error = touched[name] && errors[name];
+    return (
+      <AnimatePresence exitBeforeEnter>
+        <motion.label
+          initial="initial"
+          animate="default"
+          exit="exit"
+          key={error || label}
+          variants={labelVariants}
+          className={cx({ [styles.ErrorLabel]: !!error })}
+        >
+          {error || label}
+        </motion.label>
+      </AnimatePresence>
+    );
+  };
 
   return (
-    <div id="contact" className={styles.Contact}>
+    <FadeUpDiv threshold={0.5} id="contact" className={styles.Contact}>
       <h2>Send me a message</h2>
       <Highlight color>
         Got an interesting project for me, or just want to chat?
@@ -79,11 +121,7 @@ const Contact = () => {
       >
         <input type="hidden" name="form-name" value="contact" />
         <div className={styles.InputContainer}>
-          {errors.name && touched.name ? (
-            <label className={styles.ErrorLabel}>{errors.name}</label>
-          ) : (
-            <label>Name</label>
-          )}
+          {renderLabel('name', 'Name')}
           <input
             value={values.name}
             onChange={handleChange('name')}
@@ -93,11 +131,7 @@ const Contact = () => {
           />
         </div>
         <div className={styles.InputContainer}>
-          {errors.email && touched.email ? (
-            <label className={styles.ErrorLabel}>{errors.email}</label>
-          ) : (
-            <label>Email</label>
-          )}
+          {renderLabel('email', 'Email')}
           <input
             value={values.email}
             onChange={handleChange('email')}
@@ -108,11 +142,7 @@ const Contact = () => {
           />
         </div>
         <div className={styles.TextareaContainer}>
-          {errors.message && touched.message ? (
-            <label className={styles.ErrorLabel}>{errors.message}</label>
-          ) : (
-            <label>Your Message</label>
-          )}
+          {renderLabel('message', 'Your Message')}
           <textarea
             value={values.message}
             onChange={handleChange('message')}
@@ -140,7 +170,7 @@ const Contact = () => {
           </button>
         )}
       </form>
-    </div>
+    </FadeUpDiv>
   );
 };
 

@@ -1,0 +1,28 @@
+.Container {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 20000;
+  background: var(--color-background);
+  span {
+    font-size: 1.5rem;
+  }
+}
+.Loader {
+  height: 6rem;
+  width: 6rem;
+  stroke-width: 2px;
+  stroke: white;
+  display: block;
+  margin-bottom: 2rem;
+  fill: none;
+  stroke-dasharray: 64;
+  path {
+    width: 100%;
+    height: 100%;
+  }
+}

@@ -2,22 +2,9 @@
   box-sizing: border-box;
   max-width: 1650px;
   margin: auto;
-  padding: 0 6rem;
+  padding: 0 10rem;
   @media screen and (max-width: 768px) {
     padding: 0 3rem;
-  }
-}
-footer {
-  width: 100%;
-  font-size: 1.5rem;
-  padding: 2rem 0;
-  display: flex;
-  justify-content: space-between;
-  a {
-    margin-left: 1rem;
-  }
-  svg {
-    fill: white;
   }
 }
 .Cursor {
@@ -37,16 +24,13 @@ footer {
 .Progress {
   z-index: 5000;
   position: fixed;
-  width: 4rem;
-  height: 4rem;
+  width: 8vh;
+  height: 8vh;
   right: 4rem;
-  top: 2rem;
-  fill: var(--color-background);
-  opacity: 0;
-  rect {
-    width: 100%;
-    height: 100%;
-    stroke: white;
-    stroke-width: 6px;
-  }
+  top: 4rem;
+  fill: none;
+  stroke-dasharray: 64;
+  stroke-dashoffset: 64;
+  stroke: white;
+  stroke-width: 3px;
 }

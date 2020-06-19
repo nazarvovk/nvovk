@@ -4,9 +4,17 @@
   width: 100%;
   position: relative;
   top: 2rem;
+  margin: 0 -4rem;
+  @media screen and (max-width: 768px) {
+    margin: 0;
+  }
   a {
     color: white;
     text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      color: #575a8e;
+    }
   }
   li {
     display: block;
@@ -25,8 +33,11 @@
     }
   }
 }
-.BlogLink {
+a.BlogLink {
   cursor: not-allowed;
   opacity: 0.5;
   width: 4ch;
+  &:hover {
+    color: white;
+  }
 }
