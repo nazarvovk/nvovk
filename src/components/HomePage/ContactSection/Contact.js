@@ -35,7 +35,6 @@ const handleSubmit = (values) => {
   const urlEncodedData = Object.entries(values)
     .map(([key, val]) => `${key}=${encodeURIComponent(val)}`)
     .join('&');
-  console.log('urlEncodedData: ', urlEncodedData);
   return Promise.all([
     new Promise((res) => setTimeout(res, 1000)),
     fetch('/', {

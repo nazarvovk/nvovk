@@ -73,6 +73,7 @@ const HomePage = () => {
     if (typeof window !== `undefined`) {
       Promise.all([
         import('assets/sounds/click.mp3'),
+        document.fonts.ready,
         new Promise((res) => setTimeout(res, 500)),
       ]).then(([{ default: clickSoundSrc }]) => {
         document.addEventListener('mousedown', () => {
