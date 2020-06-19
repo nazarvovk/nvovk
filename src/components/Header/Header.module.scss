@@ -7,6 +7,10 @@
   a {
     color: white;
     text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      color: #575a8e;
+    }
   }
   li {
     display: block;
@@ -25,8 +29,11 @@
     }
   }
 }
-.BlogLink {
+a.BlogLink {
   cursor: not-allowed;
   opacity: 0.5;
   width: 4ch;
+  &:hover {
+    color: white;
+  }
 }

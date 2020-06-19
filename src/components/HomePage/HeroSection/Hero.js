@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useLayoutEffect, useRef } from 'react';
 import styles from './Hero.module.scss';
 
 import BackgroundName from './BackgroundName';
-import dividerFade from './divider_fade.png';
 import EmailButton from './EmailButton';
 import Highlight from '../../Highlight';
-import { motion, useAnimation, transform } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
+import DotsCanvas from './DotsCanvas';
 
 export const useMousePosition = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -58,28 +58,33 @@ const bottomVariants = {
 const Hero = () => {
   const { x: mouseX, y: mouseY } = useMousePosition();
   // wanna punch myself for this, pretty sure there's a better way
-  const [didEnter, setDidEnter] = useState(false);
+  const [hasEntered, setHasEntered] = useState(false);
   const controls = useAnimation();
-  async function sequence() {
-    if (!didEnter) {
+  const lastPosition = useRef('close');
+  async function animate() {
+    if (!hasEntered) {
       await controls.start('entered');
-      setDidEnter(true);
+      setHasEntered(true);
     } else {
       const centerX = window.innerWidth / 2;
       const centerY = window.innerHeight / 2;
       const maxDistanceToCenter = Math.hypot(centerX, centerY);
       const distanceToCenter = Math.hypot(centerX - mouseX, centerY - mouseY);
-      const x = transform(distanceToCenter, [0, maxDistanceToCenter], [-5, 10]);
-
-      controls.start((a) => ({ x: `${x * a}%` }), {
-        ease: 'easeInOut',
-        duration: 4,
-      });
+      const currentPosition =
+        distanceToCenter > maxDistanceToCenter / 1.8 ? 'apart' : 'close';
+      const x = distanceToCenter > maxDistanceToCenter / 1.8 ? 10 : 0;
+      if (currentPosition !== lastPosition.current) {
+        controls.start((a) => ({ x: `${x * a}%` }), {
+          ease: 'easeInOut',
+          duration: 1,
+        });
+      }
+      lastPosition.current = currentPosition;
     }
   }
-  useEffect(() => {
-    sequence();
-  }, [didEnter, mouseX, mouseY]);
+  useLayoutEffect(() => {
+    animate();
+  }, [hasEntered, mouseX, mouseY]);
 
   return (
     <section className={styles.Hero}>
@@ -93,7 +98,7 @@ const Hero = () => {
         </motion.span>
       </motion.div>
       <EmailButton />
-      <img className={styles.DividerFade} src={dividerFade} />
+      <DotsCanvas />
     </section>
   );
 };

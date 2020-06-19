@@ -7,6 +7,7 @@ import {
   Highlight_3,
   Color,
   Outline,
+  Glitch,
 } from './Highlight.module.scss';
 
 const Highlight = ({
@@ -16,6 +17,7 @@ const Highlight = ({
   v3,
   color,
   outline,
+  glitch,
   className,
   ...props
 }) => {
@@ -26,11 +28,12 @@ const Highlight = ({
       [Highlight_3]: v3,
       [Color]: color,
       [Outline]: outline,
+      [Glitch]: glitch,
     },
     className,
   );
   return (
-    <span {...props} className={classes}>
+    <span {...props} className={classes} data-text={children}>
       {children}
     </span>
   );
@@ -40,6 +43,7 @@ Highlight.propTypes = {
   children: PropTypes.string.isRequired,
   color: PropTypes.bool,
   outline: PropTypes.bool,
+  glitch: PropTypes.bool,
   v1: PropTypes.bool,
   v2: PropTypes.bool,
   v3: PropTypes.bool,

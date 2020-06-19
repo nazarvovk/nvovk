@@ -12,7 +12,7 @@
   }
   svg:nth-child(2) {
     transform: translate($offset, -50%);
-    animation: #{$name}-anim-2 10s infinite steps(2) normal;
+    animation: #{$name}-anim-2 10s infinite steps(4) normal;
   }
 }
 

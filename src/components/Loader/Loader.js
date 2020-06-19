@@ -14,7 +14,7 @@ const containerVariants = {
     transition: {
       when: 'afterChildren',
       delay: 0.1,
-      duration: 0.5,
+      duration: 0.75,
       times: [0, 0.1, 0.2, 0.3, 0.8],
     },
   },

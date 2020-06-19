@@ -24,20 +24,20 @@ const Services = () => {
             Putting together complex digital solutions
             <br />
             From
-            <Highlight color> research </Highlight>
+            <Highlight glitch> research </Highlight>
             to
-            <Highlight color> design and development </Highlight>
+            <Highlight glitch> design and development </Highlight>
           </div>
           <div className={styles.ListItem}>
             Building apps with
             <br />
-            <Highlight color>complicated business logic</Highlight>
+            <Highlight glitch>complicated business logic</Highlight>
           </div>
           <div className={styles.ListItem}>
-            Using just the right tools to deliver
-            <Highlight color> fast</Highlight>,
+            Using just the right tools to deliver{' '}
+            <Highlight glitch>fast</Highlight>,
             <br />
-            <Highlight color>scalable applications</Highlight>
+            <Highlight glitch>scalable applications</Highlight>
           </div>
         </div>
       </div>

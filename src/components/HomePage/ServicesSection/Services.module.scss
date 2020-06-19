@@ -8,6 +8,8 @@
   font-weight: 700;
   margin-bottom: 4rem;
   position: relative;
+  width: 100%;
+  text-align: center;
 }
 .Container {
   position: relative;
@@ -89,16 +91,19 @@
   border-right: 0.25rem solid white;
 }
 .ListContainer {
-  font-size: 2.5rem;
+  font-size: 2rem;
   line-height: 1;
   margin-left: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  width: 100%;
 }
 .ListItem {
   margin-bottom: 4rem;
+  width: 100%;
+  text-align: center;
   &:last-child {
     margin-bottom: 0;
   }

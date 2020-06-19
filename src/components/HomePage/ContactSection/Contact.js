@@ -5,6 +5,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import cx from 'classnames';
 import { useHoverButton } from '../../../utils';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const Check = () => (
   <svg x="0px" y="0px" viewBox="0 0 448 448" className={styles.CheckIcon}>
@@ -45,6 +46,25 @@ const handleSubmit = (values) => {
   ]);
 };
 
+const labelVariants = {
+  initial: {
+    opacity: 0,
+  },
+  default: {
+    opacity: [1, 0, 1, 0, 1],
+    transition: {
+      duration: 0.5,
+      times: [0, 0.1, 0.2, 0.3, 0.8],
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.1,
+    },
+  },
+};
+
 const Contact = () => {
   const [isSent, setIsSent] = useState(false);
   const [isSubmitButtonHovered, submitButtonHandlers] = useHoverButton();
@@ -62,8 +82,31 @@ const Contact = () => {
     validationSchema,
     validateOnChange: false,
   });
-  const handleChange = (name) => (e) => setFieldValue(name, e.target.value);
-  const handleBlur = (name) => () => setFieldTouched(name, true);
+  const handleChange = (name) => (e) => {
+    setFieldValue(name, e.target.value, false);
+  };
+  const handleBlur = (name) => (e) => {
+    setFieldTouched(name, true);
+    setFieldTouched(name, !!e.target.value);
+  };
+  const renderLabel = (name, label) => {
+    const error = touched[name] && errors[name];
+    console.log('error: ', error);
+    return (
+      <AnimatePresence exitBeforeEnter>
+        <motion.label
+          initial="initial"
+          animate="default"
+          exit="exit"
+          key={error || label}
+          variants={labelVariants}
+          className={cx({ [styles.ErrorLabel]: !!error })}
+        >
+          {error || label}
+        </motion.label>
+      </AnimatePresence>
+    );
+  };
 
   return (
     <div id="contact" className={styles.Contact}>
@@ -78,11 +121,7 @@ const Contact = () => {
         data-netlify-honeypot="bot-field"
       >
         <div className={styles.InputContainer}>
-          {errors.name && touched.name ? (
-            <label className={styles.ErrorLabel}>{errors.name}</label>
-          ) : (
-            <label>Name</label>
-          )}
+          {renderLabel('name', 'Name')}
           <input
             value={values.name}
             onChange={handleChange('name')}

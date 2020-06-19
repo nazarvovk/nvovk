@@ -5,6 +5,7 @@ import ReactImg from './React.svg.js';
 import EcosystemImg from './Ecosystem.svg.js';
 import CodeBackgroundImage from './CodeBackgroundImage.svg.js';
 import Highlight from '../../Highlight';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const images = { js: JsImg, react: ReactImg, ecosystem: EcosystemImg };
 
@@ -53,10 +54,19 @@ const About = () => {
             JS ecosystem
           </Highlight>
         </div>
-        <div className={styles.ImageContainer}>
-          <BackgroundImage className={styles.Image} />
-          <BackgroundImage className={styles.Image} />
-        </div>
+        <AnimatePresence exitBeforeEnter>
+          <motion.div
+            key={imageKey}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{duration: 0.1}}
+            className={styles.ImageContainer}
+          >
+            <BackgroundImage className={styles.Image} />
+            <BackgroundImage className={styles.Image} />
+          </motion.div>
+        </AnimatePresence>
       </div>
       <div className={styles.ContainerSecondary}>
         <div className={styles.Text}>
