@@ -4,27 +4,31 @@ import JsImg from './JS.svg.js';
 import ReactImg from './React.svg.js';
 import EcosystemImg from './Ecosystem.svg.js';
 import CodeBackgroundImage from './CodeBackgroundImage.svg.js';
-import Highlight from '../../Highlight';
+import Highlight from 'components/Highlight';
 import { motion, AnimatePresence } from 'framer-motion';
+import { FadeUpDiv } from '../../../utils';
 
 const images = { js: JsImg, react: ReactImg, ecosystem: EcosystemImg };
 
 const About = () => {
-  const [imageKey, setImageKey] = useState('js');
+  const [imageKey, setImageKey] = useState('ecosystem');
   const changeImage = (key) => () => setImageKey(key);
   const BackgroundImage = images[imageKey];
+
   return (
     <section className={styles.AboutSection} id="about">
-      <h3 className={styles.Title}>
-        Hi, I&apos;m Nazar –<br />
-        web <Highlight outline>developer</Highlight>
-        <br />
-        helping startups build
-        <br />
-        <Highlight outline>amazing products</Highlight>
-      </h3>
+      <FadeUpDiv>
+        <motion.h3 className={styles.Title}>
+          Hi, I&apos;m Nazar –<br />
+          web <Highlight outline>developer</Highlight>
+          <br />
+          helping startups build
+          <br />
+          <Highlight outline>amazing products</Highlight>
+        </motion.h3>
+      </FadeUpDiv>
       <div className={styles.Container}>
-        <div className={styles.Text}>
+        <FadeUpDiv className={styles.Text}>
           Specializing in
           <br />
           <Highlight
@@ -53,14 +57,14 @@ const About = () => {
           >
             JS ecosystem
           </Highlight>
-        </div>
+        </FadeUpDiv>
         <AnimatePresence exitBeforeEnter>
           <motion.div
             key={imageKey}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{duration: 0.1}}
+            transition={{ duration: 0.1 }}
             className={styles.ImageContainer}
           >
             <BackgroundImage className={styles.Image} />
@@ -69,11 +73,11 @@ const About = () => {
         </AnimatePresence>
       </div>
       <div className={styles.ContainerSecondary}>
-        <div className={styles.Text}>
+        <FadeUpDiv className={styles.Text}>
           Focusing on writing
           <Highlight outline> clean, </Highlight>elegant and
           <Highlight outline> efficient code</Highlight>
-        </div>
+        </FadeUpDiv>
         <div className={styles.ImageContainer}>
           <CodeBackgroundImage className={styles.Image} />
           <CodeBackgroundImage className={styles.Image} />

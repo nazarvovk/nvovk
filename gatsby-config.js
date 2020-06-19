@@ -48,6 +48,7 @@ module.exports = {
         pages: path.join(__dirname, 'src/pages'),
         components: path.join(__dirname, 'src/components'),
         assets: path.join(__dirname, 'src/assets'),
+        utils: path.join(__dirname, 'src/utils'),
       },
     },
   ],

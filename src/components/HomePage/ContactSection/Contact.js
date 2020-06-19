@@ -4,7 +4,7 @@ import Highlight from '../../Highlight';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import cx from 'classnames';
-import { useHoverButton } from '../../../utils';
+import { useHoverButton, FadeUpDiv } from '../../../utils';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const Check = () => (
@@ -91,7 +91,6 @@ const Contact = () => {
   };
   const renderLabel = (name, label) => {
     const error = touched[name] && errors[name];
-    console.log('error: ', error);
     return (
       <AnimatePresence exitBeforeEnter>
         <motion.label
@@ -109,7 +108,7 @@ const Contact = () => {
   };
 
   return (
-    <div id="contact" className={styles.Contact}>
+    <FadeUpDiv threshold={0.5} id="contact" className={styles.Contact}>
       <h2>Send me a message</h2>
       <Highlight color>
         Got an interesting project for me, or just want to chat?
@@ -130,11 +129,7 @@ const Contact = () => {
           />
         </div>
         <div className={styles.InputContainer}>
-          {errors.email && touched.email ? (
-            <label className={styles.ErrorLabel}>{errors.email}</label>
-          ) : (
-            <label>Email</label>
-          )}
+          {renderLabel('email', 'Email')}
           <input
             value={values.email}
             onChange={handleChange('email')}
@@ -144,11 +139,7 @@ const Contact = () => {
           />
         </div>
         <div className={styles.TextareaContainer}>
-          {errors.message && touched.message ? (
-            <label className={styles.ErrorLabel}>{errors.message}</label>
-          ) : (
-            <label>Your Message</label>
-          )}
+          {renderLabel('message', 'Your Message')}
           <textarea
             value={values.message}
             onChange={handleChange('message')}
@@ -175,7 +166,7 @@ const Contact = () => {
           </button>
         )}
       </form>
-    </div>
+    </FadeUpDiv>
   );
 };
 

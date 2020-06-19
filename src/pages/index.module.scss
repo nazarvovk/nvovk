@@ -2,7 +2,7 @@
   box-sizing: border-box;
   max-width: 1650px;
   margin: auto;
-  padding: 0 6rem;
+  padding: 0 10rem;
   @media screen and (max-width: 768px) {
     padding: 0 3rem;
   }
@@ -24,8 +24,8 @@
 .Progress {
   z-index: 5000;
   position: fixed;
-  width: 4rem;
-  height: 4rem;
+  width: 8vh;
+  height: 8vh;
   right: 4rem;
   top: 4rem;
   fill: none;

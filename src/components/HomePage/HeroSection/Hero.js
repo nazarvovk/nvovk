@@ -1,9 +1,8 @@
 import React, { useEffect, useState, useLayoutEffect, useRef } from 'react';
 import styles from './Hero.module.scss';
-
 import BackgroundName from './BackgroundName';
 import EmailButton from './EmailButton';
-import Highlight from '../../Highlight';
+import Highlight from 'components/Highlight';
 import { motion, useAnimation } from 'framer-motion';
 import DotsCanvas from './DotsCanvas';
 
@@ -85,7 +84,6 @@ const Hero = () => {
   useLayoutEffect(() => {
     animate();
   }, [hasEntered, mouseX, mouseY]);
-
   return (
     <section className={styles.Hero}>
       <BackgroundName />

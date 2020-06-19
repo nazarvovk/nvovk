@@ -1,12 +1,9 @@
-.Tasks {
-  min-height: 700px;
-  margin-bottom: 80px;
-  padding: 4rem 0;
+.Services {
+  margin-bottom: 8rem;
 }
 .Title {
   font-size: 4rem;
   font-weight: 700;
-  margin-bottom: 4rem;
   position: relative;
   width: 100%;
   text-align: center;
@@ -15,10 +12,14 @@
   position: relative;
   display: flex;
   align-items: center;
+  @media screen and (max-width: 768px) {
+    flex-direction: column-reverse;
+  }
 }
 .LogoContainer {
   width: 40%;
   min-width: 16rem;
+  min-height: 16rem;
   position: relative;
   display: flex;
   justify-content: center;
@@ -99,6 +100,7 @@
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
+  margin-bottom: 4rem;
 }
 .ListItem {
   margin-bottom: 4rem;

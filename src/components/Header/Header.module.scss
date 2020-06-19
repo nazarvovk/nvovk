@@ -4,6 +4,10 @@
   width: 100%;
   position: relative;
   top: 2rem;
+  margin: 0 -4rem;
+  @media screen and (max-width: 768px) {
+    margin: 0;
+  }
   a {
     color: white;
     text-decoration: none;
