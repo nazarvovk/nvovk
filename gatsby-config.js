@@ -8,6 +8,7 @@ module.exports = {
     authorGithubLink: `https://github.com/nazarvovk`,
     authorTwitter: `@nvovk_`,
     authorTwitterLink: `https://twitter.com/nvovk_`,
+    authorLinkedInLink: `https://www.linkedin.com/in/nvovk/`,
     locale: `en_US`,
     url: `https://nvovk.com/`,
   },

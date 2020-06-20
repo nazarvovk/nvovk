@@ -8,7 +8,7 @@ const EmailButton = () => {
   const [isHovered, buttonProps] = useHoverButton();
 
   return (
-    <a href="mailto:nazarvovk.work@gmail.com">
+    <a href="mailto:work@nvovk.com">
       <motion.button
         initial={{ opacity: 0, x: '-25%' }}
         animate={{ opacity: 1, x: '0%' }}
@@ -26,9 +26,7 @@ const EmailButton = () => {
           <polygon points="308.431,275.933 257,320.937 205.569,275.933 22.638,420 491.368,420" />
           <polygon points="331.213,256 512,414.187 512,97.81" />
         </svg>
-        {isHovered && (
-          <span>email me</span>
-        )}
+        {isHovered && <span>email me</span>}
       </motion.button>
     </a>
   );
