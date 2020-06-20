@@ -1,12 +1,15 @@
 const path = require('path');
 module.exports = {
   siteMetadata: {
-    title: `Nazar Vovk – Web Developer`,
+    title: `Nazar Vovk`,
+    titleLong: `Nazar Vovk – Web Developer`,
     description: `Nazar Vovk, frontend-oriented fullstack developer. I work with JavaScript, React and many more technologies to bring your ideas to life.`,
     authorGithub: `@nazarvovk`,
     authorGithubLink: `https://github.com/nazarvovk`,
     authorTwitter: `@nvovk_`,
     authorTwitterLink: `https://twitter.com/nvovk_`,
+    locale: `en_US`,
+    url: `https://nvovk.com/`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -14,7 +17,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src/assets/images`,
       },
     },
     `gatsby-transformer-sharp`,
@@ -28,7 +31,7 @@ module.exports = {
         background_color: `#060719`,
         theme_color: `#060719`,
         display: `minimal-ui`,
-        icon: `src/images/icon.png`, // This path is relative to the root of the site.
+        icon: `src/assets/images/icon.png`, // This path is relative to the root of the site.
       },
     },
     {

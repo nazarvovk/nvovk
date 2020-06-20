@@ -52,6 +52,7 @@
     height: 4rem;
     transition: all ease-in-out 0.2s;
     border-bottom: 3px solid #ffffffa0;
+    outline: none;
     &:hover {
       border-bottom: 3px solid #ffffff;
     }
@@ -79,6 +80,7 @@
     transition: all ease-in-out 0.2s;
     font-family: inherit;
     border-bottom: 3px solid #ffffffa0;
+    outline: none;
     &:hover {
       border-bottom: 3px solid #ffffff;
     }

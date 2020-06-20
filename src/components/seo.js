@@ -11,36 +11,75 @@ import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
 function SEO({ description, lang, meta }) {
-  const { site } = useStaticQuery(
+  const { site, imageSharp } = useStaticQuery(
     graphql`
       query {
         site {
           siteMetadata {
             title
+            titleLong
             description
             authorTwitter
+            locale
+            url
+          }
+        }
+        imageSharp(fixed: { originalName: { eq: "me.jpg" } }) {
+          resize(height: 720) {
+            width
+            height
+            src
           }
         }
       }
     `,
   );
-
-  const metaDescription = description || site.siteMetadata.description;
+  const { siteMetadata } = site;
+  const metaDescription = description || siteMetadata.description;
+  const imageUrl = `${siteMetadata.url}${imageSharp.resize.src.slice(1)}`;
+  const jsonLdString = `{
+    "@context": "https://schema.org/",
+    "@type": "Person",
+    "name": "Nazar Vovk",
+    "url": "https://nvovk.com/",
+    "image": "${imageUrl}",
+    "sameAs": [
+      "https://twitter.com/nvovk_",
+      "https://www.linkedin.com/in/nvovk/",
+      "https://github.com/nazarvovk"
+    ]  
+  }`;
 
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
-      title={site.siteMetadata.title}
+      title={siteMetadata.titleLong}
       meta={[
+        {
+          name: `robots`,
+          content: `index`,
+        },
         {
           name: `description`,
           content: metaDescription,
         },
         {
+          property: `og:locale`,
+          content: siteMetadata.locale,
+        },
+        {
+          property: `og:url`,
+          content: siteMetadata.url,
+        },
+        {
+          property: `og:site_name`,
+          content: siteMetadata.titleLong,
+        },
+        {
           property: `og:title`,
-          content: site.siteMetadata.title,
+          content: siteMetadata.title,
         },
         {
           property: `og:description`,
@@ -50,24 +89,47 @@ function SEO({ description, lang, meta }) {
           property: `og:type`,
           content: `website`,
         },
+
+        {
+          name: `og:image`,
+          content: imageUrl,
+        },
+        {
+          name: `og:image:secure_url`,
+          content: imageUrl,
+        },
+        {
+          name: `og:image:width`,
+          content: imageSharp.resize.width,
+        },
+        {
+          name: `og:image:height`,
+          content: imageSharp.resize.height,
+        },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.authorTwitter,
+          content: siteMetadata.authorTwitter,
         },
         {
           name: `twitter:title`,
-          content: site.siteMetadata.title,
+          content: siteMetadata.title,
         },
         {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: `twitter:image`,
+          content: imageUrl,
+        },
       ].concat(meta)}
-    />
+    >
+      <script type="application/ld+json">{jsonLdString}</script>
+    </Helmet>
   );
 }
 
