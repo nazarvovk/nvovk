@@ -8,7 +8,8 @@ module.exports = {
     authorGithubLink: `https://github.com/nazarvovk`,
     authorTwitter: `@nvovk_`,
     authorTwitterLink: `https://twitter.com/nvovk_`,
-    authorLinkedInLink: `https://www.linkedin.com/in/nvovk/`,
+    authorTelegramLink: `https://t.me/nvovk`,
+    authorLinkedInLink: `https://www.linkedin.com/in/nvovk`,
     locale: `en_US`,
     url: `https://nvovk.com/`,
   },
@@ -39,6 +40,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: 'UA-153567385-1',
+        head: true,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
