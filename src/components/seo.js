@@ -11,9 +11,9 @@ import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
 function SEO({ description, lang, meta }) {
-  const { site, imageSharp } = useStaticQuery(
+  const { site, me, screenshot } = useStaticQuery(
     graphql`
-      query {
+      query Site {
         site {
           siteMetadata {
             title
@@ -24,10 +24,17 @@ function SEO({ description, lang, meta }) {
             url
           }
         }
-        imageSharp(fixed: { originalName: { eq: "me.jpg" } }) {
+        me: imageSharp(fixed: { originalName: { eq: "me.jpg" } }) {
           resize(height: 720) {
             width
             height
+            src
+          }
+        }
+        screenshot: imageSharp(
+          fixed: { originalName: { eq: "screenshot.png" } }
+        ) {
+          resize(height: 720) {
             src
           }
         }
@@ -36,7 +43,8 @@ function SEO({ description, lang, meta }) {
   );
   const { siteMetadata } = site;
   const metaDescription = description || siteMetadata.description;
-  const imageUrl = `${siteMetadata.url}${imageSharp.resize.src.slice(1)}`;
+  const imageUrl = `${siteMetadata.url}${me.resize.src.slice(1)}`;
+  const screenshotUrl = `${siteMetadata.url}${screenshot.resize.src.slice(1)}`;
   const jsonLdString = `{
     "@context": "https://schema.org/",
     "@type": "Person",
@@ -100,11 +108,11 @@ function SEO({ description, lang, meta }) {
         },
         {
           name: `og:image:width`,
-          content: imageSharp.resize.width,
+          content: me.resize.width,
         },
         {
           name: `og:image:height`,
-          content: imageSharp.resize.height,
+          content: me.resize.height,
         },
         {
           name: `twitter:card`,
@@ -124,7 +132,7 @@ function SEO({ description, lang, meta }) {
         },
         {
           name: `twitter:image`,
-          content: imageUrl,
+          content: screenshotUrl,
         },
       ].concat(meta)}
     >
