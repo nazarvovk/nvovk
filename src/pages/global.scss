@@ -12,7 +12,7 @@
 :root {
   --color-background: #060719;
   --color-background-lighter: #0e0f25;
-  font-size: 1vw;
+  font-size: 0.975vw;
   font-family: 'Futura', Avenir, Arial, Helvetica, sans-serif;
   @media screen and (max-width: 1024px) {
     font-size: 1.4vw;
@@ -31,7 +31,7 @@
 }
 body {
   margin: 0;
-  overflow-x: hidden;
+  overflow: hidden;
   background-color: var(--color-background);
   color: #fff;
 }

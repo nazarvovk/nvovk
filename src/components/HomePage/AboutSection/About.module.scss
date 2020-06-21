@@ -21,7 +21,10 @@
   cursor: default;
   font-size: 4rem;
   font-weight: 400;
-  padding: 4rem 0;
+  padding: 4rem;
+  @media screen and (max-width: 768px) {
+    padding: 0;
+  }
 }
 .Title {
   font-size: 4rem;

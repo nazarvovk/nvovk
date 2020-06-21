@@ -2,10 +2,7 @@
   box-sizing: border-box;
   max-width: 1650px;
   margin: auto;
-  padding: 0 10rem;
-  @media screen and (max-width: 768px) {
-    padding: 0 3rem;
-  }
+  padding: 0 2rem;
 }
 .Cursor {
   z-index: 10000;
