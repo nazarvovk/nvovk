@@ -1,4 +1,10 @@
-import React, { useEffect, useState, useLayoutEffect, useRef } from 'react';
+import React, {
+  useEffect,
+  useState,
+  useLayoutEffect,
+  useRef,
+  useCallback,
+} from 'react';
 import styles from './Hero.module.scss';
 import BackgroundName from './BackgroundName';
 import EmailButton from './EmailButton';
@@ -22,7 +28,7 @@ export const useMousePosition = () => {
 };
 
 const commonEntered = {
-  opacity: [null, 1, 0, 1, 0, 1, 1],
+  opacity: [0, 1, 0, 1, 0, 1, 1],
   transition: {
     delay: 2,
     duration: 0.75,
@@ -36,7 +42,7 @@ const topVariants = {
     x: '-15%',
     y: '-10%',
   },
-  entered: {
+  enter: {
     ...commonEntered,
     x: ['-15%', '-15%', '-15%', '-15%', '-15%', '-15%', '-5%'],
     y: ['-15%', '-15%', '-15%', '-15%', '-15%', '-15%', '0%'],
@@ -48,53 +54,60 @@ const bottomVariants = {
     x: '15%',
     y: '10%',
   },
-  entered: {
+  enter: {
     ...commonEntered,
     x: ['15%', '15%', '15%', '15%', '15%', '15%', '5%'],
     y: ['15%', '15%', '15%', '15%', '15%', '15%', `0%`],
   },
 };
-const Hero = () => {
+
+const Title = () => {
   const { x: mouseX, y: mouseY } = useMousePosition();
-  // wanna punch myself for this, pretty sure there's a better way
-  const [hasEntered, setHasEntered] = useState(false);
   const controls = useAnimation();
-  const lastPosition = useRef('close');
-  async function animate() {
-    if (!hasEntered) {
-      await controls.start('entered');
-      setHasEntered(true);
+  const position = useRef('initial');
+  const animate = useCallback(async () => {
+    if (position.current === 'entering') return;
+    if (position.current === 'initial') {
+      position.current = 'entering';
+      await controls.start('enter');
+      position.current = 'entered';
     } else {
       const centerX = window.innerWidth / 2;
       const centerY = window.innerHeight / 2;
       const maxDistanceToCenter = Math.hypot(centerX, centerY);
       const distanceToCenter = Math.hypot(centerX - mouseX, centerY - mouseY);
-      const currentPosition =
+      const newPosition =
         distanceToCenter > maxDistanceToCenter / 1.8 ? 'apart' : 'close';
       const x = distanceToCenter > maxDistanceToCenter / 1.8 ? 10 : 0;
-      if (currentPosition !== lastPosition.current) {
-        controls.start((a) => ({ x: `${x * a}%` }), {
+      if (newPosition !== position.current) {
+        controls.start((direction) => ({ x: `${x * direction}%` }), {
           ease: 'easeInOut',
           duration: 1,
         });
+        position.current = newPosition;
       }
-      lastPosition.current = currentPosition;
     }
-  }
+  }, [controls, mouseX, mouseY]);
   useLayoutEffect(() => {
     animate();
-  }, [hasEntered, mouseX, mouseY]);
+  }, [animate, mouseX, mouseY]);
+  return (
+    <motion.div initial="initial" className={styles.CenterText}>
+      <motion.span animate={controls} custom={-1} variants={topVariants}>
+        frontend-oriented
+      </motion.span>
+      <motion.span animate={controls} custom={1} variants={bottomVariants}>
+        <Highlight v1>fullstack developer</Highlight>
+      </motion.span>
+    </motion.div>
+  );
+};
+
+const Hero = () => {
   return (
     <section className={styles.Hero}>
       <BackgroundName />
-      <motion.div initial="initial" className={styles.CenterText}>
-        <motion.span animate={controls} custom={-1} variants={topVariants}>
-          frontend-oriented
-        </motion.span>
-        <motion.span animate={controls} custom={1} variants={bottomVariants}>
-          <Highlight v1>fullstack developer</Highlight>
-        </motion.span>
-      </motion.div>
+      <Title />
       <EmailButton />
       <DotsCanvas />
     </section>
