@@ -3,7 +3,6 @@ import React, {
   useState,
   useLayoutEffect,
   useRef,
-  useCallback,
 } from 'react';
 import styles from './Hero.module.scss';
 import BackgroundName from './BackgroundName';
@@ -12,7 +11,7 @@ import Highlight from 'components/Highlight';
 import { motion, useAnimation } from 'framer-motion';
 import DotsCanvas from './DotsCanvas';
 
-export const useMousePosition = () => {
+export const useMouse = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -61,36 +60,58 @@ const bottomVariants = {
   },
 };
 
+const ANIMATION_STATES = {
+  INITIAL: 'INITIAL',
+  ENTERING: 'ENTERING',
+  ENTERED: 'ENTERED',
+};
+const ENTERED_VARIANTS = {
+  APART: {
+    x: 10,
+  },
+  CLOSE: {
+    x: 0,
+  },
+};
+const useSlidePosition = () => {
+  const { x, y } = useMouse();
+
+  const centerX = window.innerWidth / 2;
+  const centerY = window.innerHeight / 2;
+  const maxDistanceToCenter = Math.hypot(centerX, centerY);
+  const breakpoint = maxDistanceToCenter / 1.8;
+  const distanceToCenter = Math.hypot(centerX - x, centerY - y);
+  const position =
+    distanceToCenter > breakpoint
+      ? ENTERED_VARIANTS.APART
+      : ENTERED_VARIANTS.CLOSE;
+
+  return position;
+};
+
 const Title = () => {
-  const { x: mouseX, y: mouseY } = useMousePosition();
   const controls = useAnimation();
-  const position = useRef('initial');
-  const animate = useCallback(async () => {
-    if (position.current === 'entering') return;
-    if (position.current === 'initial') {
-      position.current = 'entering';
-      await controls.start('enter');
-      position.current = 'entered';
-    } else {
-      const centerX = window.innerWidth / 2;
-      const centerY = window.innerHeight / 2;
-      const maxDistanceToCenter = Math.hypot(centerX, centerY);
-      const distanceToCenter = Math.hypot(centerX - mouseX, centerY - mouseY);
-      const newPosition =
-        distanceToCenter > maxDistanceToCenter / 1.8 ? 'apart' : 'close';
-      const x = distanceToCenter > maxDistanceToCenter / 1.8 ? 10 : 0;
-      if (newPosition !== position.current) {
-        controls.start((direction) => ({ x: `${x * direction}%` }), {
-          ease: 'easeInOut',
-          duration: 1,
-        });
-        position.current = newPosition;
+  const state = useRef(ANIMATION_STATES.INITIAL);
+  const { x } = useSlidePosition();
+
+  useLayoutEffect(() => {
+    async function animate() {
+      switch (state.current) {
+        case ANIMATION_STATES.INITIAL:
+          state.current = ANIMATION_STATES.ENTERING;
+          await controls.start('enter');
+          state.current = ANIMATION_STATES.ENTERED;
+          break;
+        case ANIMATION_STATES.ENTERED:
+          controls.start((direction) => ({ x: `${x * direction}%` }), {
+            ease: 'easeInOut',
+            duration: 0.75,
+          });
+          break;
       }
     }
-  }, [controls, mouseX, mouseY]);
-  useLayoutEffect(() => {
     animate();
-  }, [animate, mouseX, mouseY]);
+  }, [controls, x]);
   return (
     <motion.div initial="initial" className={styles.CenterText}>
       <motion.span animate={controls} custom={-1} variants={topVariants}>
