@@ -12,6 +12,7 @@ module.exports = {
     authorLinkedInLink: `https://www.linkedin.com/in/nvovk`,
     locale: `en_US`,
     url: `https://nvovk.com/`,
+    siteUrl: `https://nvovk.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -47,6 +48,7 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
     `gatsby-plugin-sass`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: 'gatsby-plugin-root-import',
       options: {

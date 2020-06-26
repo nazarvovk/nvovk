@@ -136,6 +136,7 @@ function SEO({ description, lang, meta }) {
         },
       ].concat(meta)}
     >
+      <link rel="canonical" href="https://nvovk.com/"></link>
       <script type="application/ld+json">{jsonLdString}</script>
     </Helmet>
   );
