@@ -48,16 +48,18 @@ const Scroll = () => {
   const ref = useRef();
   useEffect(() => {
     const handler = () => {
-      const wWidth = ref.current.width.baseVal.value;
-      const circumference = wWidth * 2;
       const way = document.body.clientHeight - window.innerHeight;
       const percent = (window.pageYOffset * 100) / way;
       const invertPercent = 100 - percent;
-      ref.current.style.strokeDasharray = circumference;
       ref.current.style.strokeDashoffset =
-        (invertPercent * circumference) / 100;
+        (invertPercent * 64) / 100;
     };
     addEventListener('scroll', handler);
+    addEventListener('resize', handler);
+    return () => {
+      removeEventListener('scroll', handler);
+      removeEventListener('resize', handler);
+    }
   }, []);
   return (
     <svg ref={ref} className={styles.Progress} viewBox="0 0 32 32">
