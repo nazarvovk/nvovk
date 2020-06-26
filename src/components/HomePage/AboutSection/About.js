@@ -20,7 +20,9 @@ const About = () => {
       <FadeUpDiv>
         <motion.h3 className={styles.Title}>
           Hi, I&apos;m Nazar –<br />
-          web <Highlight outline>developer</Highlight>
+          web<Highlight outline> developer </Highlight>
+          <br />
+          and<Highlight outline> UI&UX designer </Highlight>
           <br />
           helping startups build
           <br />
