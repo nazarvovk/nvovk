@@ -14,6 +14,7 @@ const EmailButton = () => {
         animate={{ opacity: 1, x: '0%' }}
         transition={{ duration: 0.5, delay: 1.5 }}
         className={cx(styles.Button, { [styles.Hovered]: isHovered })}
+        aria-label='Email me'
         {...buttonProps}
       >
         <svg

@@ -99,6 +99,7 @@ const Contact = () => {
           key={error || label}
           variants={labelVariants}
           className={cx({ [styles.ErrorLabel]: !!error })}
+          htmlFor={name}
         >
           {error || label}
         </motion.label>
@@ -126,6 +127,7 @@ const Contact = () => {
             onChange={handleChange('name')}
             onBlur={handleBlur('name')}
             name="name"
+            id="name"
             placeholder="Enter your name"
           />
         </div>
@@ -137,6 +139,7 @@ const Contact = () => {
             onBlur={handleBlur('email')}
             type="email"
             name="email"
+            id="email"
             placeholder="Enter your email address"
           />
         </div>
@@ -147,6 +150,7 @@ const Contact = () => {
             onChange={handleChange('message')}
             onBlur={handleBlur('message')}
             name="message"
+            id="message"
             rows={2}
             placeholder="Hi, we have a project you might be interested in. How soon can we discuss this?"
           ></textarea>
