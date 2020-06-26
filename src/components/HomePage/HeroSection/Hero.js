@@ -113,14 +113,14 @@ const Title = () => {
     animate();
   }, [controls, x]);
   return (
-    <motion.div initial="initial" className={styles.CenterText}>
+    <motion.h1 initial="initial" className={styles.CenterText}>
       <motion.span animate={controls} custom={-1} variants={topVariants}>
         frontend-oriented
       </motion.span>
       <motion.span animate={controls} custom={1} variants={bottomVariants}>
         <Highlight v1>fullstack developer</Highlight>
       </motion.span>
-    </motion.div>
+    </motion.h1>
   );
 };
 
