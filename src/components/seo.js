@@ -50,7 +50,7 @@ function SEO({ description, lang, meta }) {
     "@type": "Person",
     "name": "Nazar Vovk",
     "url": "https://nvovk.com/",
-    "image": "${imageUrl}",
+    "image": "${screenshotUrl}",
     "sameAs": [
       "https://twitter.com/nvovk_",
       "https://www.linkedin.com/in/nvovk/",

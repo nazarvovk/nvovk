@@ -1,9 +1,4 @@
-import React, {
-  useEffect,
-  useState,
-  useLayoutEffect,
-  useRef,
-} from 'react';
+import React, { useEffect, useState, useLayoutEffect, useRef } from 'react';
 import styles from './Hero.module.scss';
 import BackgroundName from './BackgroundName';
 import EmailButton from './EmailButton';
@@ -75,17 +70,19 @@ const ENTERED_VARIANTS = {
 };
 const useSlidePosition = () => {
   const { x, y } = useMouse();
-
-  const centerX = window.innerWidth / 2;
-  const centerY = window.innerHeight / 2;
-  const maxDistanceToCenter = Math.hypot(centerX, centerY);
-  const breakpoint = maxDistanceToCenter / 1.8;
-  const distanceToCenter = Math.hypot(centerX - x, centerY - y);
-  const position =
-    distanceToCenter > breakpoint
-      ? ENTERED_VARIANTS.APART
-      : ENTERED_VARIANTS.CLOSE;
-
+  const [position, setPosition] = useState(ENTERED_VARIANTS.CLOSE);
+  useLayoutEffect(() => {
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+    const maxDistanceToCenter = Math.hypot(centerX, centerY);
+    const breakpoint = maxDistanceToCenter / 1.8;
+    const distanceToCenter = Math.hypot(centerX - x, centerY - y);
+    const position =
+      distanceToCenter > breakpoint
+        ? ENTERED_VARIANTS.APART
+        : ENTERED_VARIANTS.CLOSE;
+    setPosition(position);
+  }, [x, y]);
   return position;
 };
 

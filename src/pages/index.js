@@ -51,15 +51,14 @@ const Scroll = () => {
       const way = document.body.clientHeight - window.innerHeight;
       const percent = (window.pageYOffset * 100) / way;
       const invertPercent = 100 - percent;
-      ref.current.style.strokeDashoffset =
-        (invertPercent * 64) / 100;
+      ref.current.style.strokeDashoffset = (invertPercent * 64) / 100;
     };
     addEventListener('scroll', handler);
     addEventListener('resize', handler);
     return () => {
       removeEventListener('scroll', handler);
       removeEventListener('resize', handler);
-    }
+    };
   }, []);
   return (
     <svg ref={ref} className={styles.Progress} viewBox="0 0 32 32">
@@ -68,48 +67,44 @@ const Scroll = () => {
     </svg>
   );
 };
+
 const HomePage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   // Runs on hydration
   useEffect(() => {
-    if (typeof window !== `undefined`) {
-      Promise.all([
-        import('assets/sounds/click.mp3'),
-        document.fonts.ready,
-        new Promise((res) => setTimeout(res, 500)),
-      ]).then(([{ default: clickSoundSrc }]) => {
-        document.addEventListener('mousedown', () => {
-          const clickSound = new Audio(clickSoundSrc);
-          clickSound.volume = 0.2;
-          clickSound.play();
-        });
-        setIsLoaded(true);
+    Promise.all([
+      import('assets/sounds/click.mp3'),
+      document.fonts.ready,
+      new Promise((res) => setTimeout(res, 500)),
+    ]).then(([{ default: clickSoundSrc }]) => {
+      document.addEventListener('mousedown', () => {
+        const clickSound = new Audio(clickSoundSrc);
+        clickSound.volume = 0.2;
+        clickSound.play();
       });
-    }
+      setIsLoaded(true);
+    });
   }, []);
   return (
     <>
       <SEO />
       <AnimatePresence exitBeforeEnter>
-        {!isLoaded ? (
-          <Loader />
-        ) : (
-          <motion.main key="Main">
-            <Cursor />
-            <Scroll />
-            <div className={styles.Container}>
-              <Header />
+        {!isLoaded && <Loader />}
+        <motion.main key="Main">
+          <Cursor />
+          <Scroll />
+          <div className={styles.Container}>
+            <Header />
 
-              <Hero />
-              <About />
-              <Services />
-              <Statistics />
-              <Contact />
+            <Hero />
+            <About />
+            <Services />
+            <Statistics />
+            <Contact />
 
-              <Footer />
-            </div>
-          </motion.main>
-        )}
+            <Footer />
+          </div>
+        </motion.main>
       </AnimatePresence>
     </>
   );
