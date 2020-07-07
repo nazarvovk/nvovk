@@ -8,10 +8,11 @@
   z-index: 10;
   background: none;
   border: 3px solid #575a8e;
-  padding: 0;
   box-sizing: border-box;
   text-align: center;
-  transition: all ease-in-out 0.2s;
+  transition: border-color ease-in-out 0.2s, border ease-in-out 0.2s,
+    padding ease-in-out 0.2s, max-width ease-in-out 0.2s, width ease-in-out 0.2s,
+    transform ease 0s;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,10 +23,10 @@
   overflow: hidden;
   text-decoration: none;
   &.Hovered {
-    border: 3px solid #575a8e;
     background: none;
-    padding: 0 2rem;
+    padding: 0 1.5rem;
     width: 100%;
+    border-color: white;
     span {
       display: block;
       white-space: nowrap;

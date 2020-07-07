@@ -28,8 +28,7 @@ const Services = () => {
             <br />
             From
             <Highlight glitch> research </Highlight>
-            to
-            <Highlight glitch> design and development </Highlight>
+            to <Highlight glitch>design and development</Highlight>
           </FadeUpDiv>
           <FadeUpDiv className={styles.ListItem}>
             Building apps with

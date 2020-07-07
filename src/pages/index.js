@@ -21,8 +21,10 @@ const useCursorFollow = () => {
       document.onmousemove = (e) => {
         const x = e.clientX - 16;
         const y = e.clientY - 16;
-        elementRef.current.style.opacity = `1`;
-        elementRef.current.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+        if(elementRef.current){
+          elementRef.current.style.opacity = `1`;
+          elementRef.current.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+        }
       };
     }
   }, []);

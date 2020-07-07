@@ -50,7 +50,8 @@ const BackgroundName = () => {
   const controls = useAnimation();
   useEffect(() => {
     controls.start('entered').then(() => controls.start('float'));
-  }, []);
+  }, [controls]);
+
   return (
     <div className={styles.BackgroundName}>
       <motion.span

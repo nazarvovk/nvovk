@@ -2,19 +2,23 @@ import React from 'react';
 import styles from './EmailButton.module.scss';
 import cx from 'classnames';
 import { useHoverButton } from '../../../utils';
-import { motion } from 'framer-motion';
+import { motion, useViewportScroll, useTransform } from 'framer-motion';
 
 const EmailButton = () => {
   const [isHovered, buttonProps] = useHoverButton();
 
+  const { scrollY } = useViewportScroll();
+  const y = useTransform(scrollY, [0, 300], [0, -50]);
+
   return (
     <a href="mailto:work@nvovk.com">
       <motion.button
+        style={{ y }}
         initial={{ opacity: 0, x: '-25%' }}
         animate={{ opacity: 1, x: '0%' }}
         transition={{ duration: 0.5, delay: 1.5 }}
         className={cx(styles.Button, { [styles.Hovered]: isHovered })}
-        aria-label='Email me'
+        aria-label="Email me"
         {...buttonProps}
       >
         <svg

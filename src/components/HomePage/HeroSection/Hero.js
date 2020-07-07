@@ -3,8 +3,12 @@ import styles from './Hero.module.scss';
 import BackgroundName from './BackgroundName';
 import EmailButton from './EmailButton';
 import Highlight from 'components/Highlight';
-import { motion, useAnimation } from 'framer-motion';
-import DotsCanvas from './DotsCanvas';
+import {
+  motion,
+  useAnimation,
+  useViewportScroll,
+  useTransform,
+} from 'framer-motion';
 
 export const useMouse = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -70,6 +74,7 @@ const ENTERED_VARIANTS = {
 };
 const useSlidePosition = () => {
   const { x, y } = useMouse();
+  const timer = useRef(null);
   const [position, setPosition] = useState(ENTERED_VARIANTS.CLOSE);
   useLayoutEffect(() => {
     const centerX = window.innerWidth / 2;
@@ -81,7 +86,8 @@ const useSlidePosition = () => {
       distanceToCenter > breakpoint
         ? ENTERED_VARIANTS.APART
         : ENTERED_VARIANTS.CLOSE;
-    setPosition(position);
+    clearTimeout(timer.current);
+    timer.current = setTimeout(() => setPosition(position), 200);
   }, [x, y]);
   return position;
 };
@@ -90,6 +96,9 @@ const Title = () => {
   const controls = useAnimation();
   const state = useRef(ANIMATION_STATES.INITIAL);
   const { x } = useSlidePosition();
+
+  const { scrollY } = useViewportScroll();
+  const y = useTransform(scrollY, [0, 300], [0, -200]);
 
   useLayoutEffect(() => {
     async function animate() {
@@ -110,7 +119,7 @@ const Title = () => {
     animate();
   }, [controls, x]);
   return (
-    <motion.h1 initial="initial" className={styles.CenterText}>
+    <motion.h1 initial="initial" style={{ y }} className={styles.CenterText}>
       <motion.span animate={controls} custom={-1} variants={topVariants}>
         frontend-oriented
       </motion.span>
@@ -127,7 +136,6 @@ const Hero = () => {
       <BackgroundName />
       <Title />
       <EmailButton />
-      <DotsCanvas />
     </section>
   );
 };
