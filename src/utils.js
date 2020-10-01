@@ -6,6 +6,7 @@ import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 
 export function isTouchDevice() {
+  if (!window) return false;
   var prefixes = ' -webkit- -moz- -o- -ms- '.split(' ');
 
   var mq = function (query) {

@@ -119,7 +119,7 @@ const HomePage = () => {
       <AnimatePresence exitBeforeEnter>
         {!isLoaded && <Loader />}
         <motion.main key="Main">
-          {!isTouchDevice() && isLoaded && <Cursor />}
+          {isLoaded && !isTouchDevice() && <Cursor />}
           <Scroll />
           <div className={styles.Container}>
             <Header />
