@@ -4,7 +4,7 @@ import Highlight from '../../Highlight';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import cx from 'classnames';
-import { useHoverButton, FadeUpDiv } from '../../../utils';
+import { useHoverButton, FlickerIn } from '../../../utils';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const Check = () => (
@@ -108,7 +108,7 @@ const Contact = () => {
   };
 
   return (
-    <FadeUpDiv threshold={0.5} id="contact" className={styles.Contact}>
+    <FlickerIn threshold={0.5} id="contact" className={styles.Contact}>
       <h2>Send me a message</h2>
       <Highlight color>
         Got an interesting project for me, or just want to chat?
@@ -118,6 +118,7 @@ const Contact = () => {
         method="post"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
+        hide-cursor="yup"
       >
         <input type="hidden" name="form-name" value="contact" />
         <div className={styles.InputContainer}>
@@ -173,7 +174,7 @@ const Contact = () => {
           </button>
         )}
       </form>
-    </FadeUpDiv>
+    </FlickerIn>
   );
 };
 

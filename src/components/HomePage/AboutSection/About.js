@@ -6,7 +6,7 @@ import EcosystemImg from './Ecosystem.svg.js';
 import CodeBackgroundImage from './CodeBackgroundImage.svg.js';
 import Highlight from 'components/Highlight';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FadeUpDiv } from '../../../utils';
+import { FlickerIn } from '../../../utils';
 
 const images = { js: JsImg, react: ReactImg, ecosystem: EcosystemImg };
 
@@ -17,7 +17,11 @@ const About = () => {
 
   return (
     <section className={styles.AboutSection} id="about">
-      <FadeUpDiv>
+      <p className="visually-hidden">
+        Hi, I&apos;m Nazar – web developer and UI/UX designer helping startups
+        build amazing products
+      </p>
+      <FlickerIn>
         <motion.h3 className={styles.Title}>
           Hi, I&apos;m Nazar –<br />
           web<Highlight outline> developer </Highlight>
@@ -28,9 +32,12 @@ const About = () => {
           <br />
           <Highlight outline>amazing products</Highlight>
         </motion.h3>
-      </FadeUpDiv>
+      </FlickerIn>
       <div className={styles.Container}>
-        <FadeUpDiv className={styles.Text}>
+        <p className="visually-hidden">
+          Specializing in JavaScript, React, and the extensive JS ecosystem
+        </p>
+        <FlickerIn className={styles.Text}>
           Specializing in
           <br />
           <Highlight
@@ -59,8 +66,12 @@ const About = () => {
           >
             JS ecosystem
           </Highlight>
-        </FadeUpDiv>
+        </FlickerIn>
         <AnimatePresence exitBeforeEnter>
+          <p className="visually-hidden">
+            Some of technologies I work with: Node.js, Typescript, GraphQL,
+            Apollo, Redux, Gatsby.js, Next.js, and many more.
+          </p>
           <motion.div
             key={imageKey}
             initial={{ opacity: 0 }}
@@ -75,11 +86,14 @@ const About = () => {
         </AnimatePresence>
       </div>
       <div className={styles.ContainerSecondary}>
-        <FadeUpDiv className={styles.Text}>
+        <p className="visually-hidden">
+          Focusing on writing clean, elegant and efficient code
+        </p>
+        <FlickerIn className={styles.Text}>
           Focusing on writing
           <Highlight outline> clean, </Highlight>elegant and
           <Highlight outline> efficient code</Highlight>
-        </FadeUpDiv>
+        </FlickerIn>
         <div className={styles.ImageContainer}>
           <CodeBackgroundImage className={styles.Image} />
           <CodeBackgroundImage className={styles.Image} />

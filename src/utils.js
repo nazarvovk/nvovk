@@ -45,28 +45,27 @@ export const useHoverButton = () => {
   return [isHovered, buttonProps];
 };
 
-const fadeUpVariants = {
+const flickerVariants = {
   out: {
-    y: 40,
     opacity: 0,
   },
   in: {
-    y: 0,
-    opacity: 1,
+    opacity: [0, 1, 0, 1, 0, 1, 1],
     transition: {
-      duration: 0.5,
-      delay: 0.2,
+      duration: 0.75,
+      times: [0, 0.1, 0.2, 0.3, 0.4, 0.75, 1],
       ease: 'easeOut',
     },
   },
 };
-export const FadeUpDiv = ({ children, threshold = 1, ...props }) => {
+
+export const FlickerIn = ({ children, threshold = 1, ...props }) => {
   const [ref, inView] = useInView({ threshold, triggerOnce: true });
   return (
     <motion.div
       initial="out"
       animate={inView ? 'in' : 'out'}
-      variants={fadeUpVariants}
+      variants={flickerVariants}
       ref={ref}
       {...props}
     >
@@ -75,7 +74,7 @@ export const FadeUpDiv = ({ children, threshold = 1, ...props }) => {
   );
 };
 
-FadeUpDiv.propTypes = {
+FlickerIn.propTypes = {
   children: PropTypes.node.isRequired,
   threshold: PropTypes.number,
 };

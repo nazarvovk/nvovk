@@ -133,6 +133,9 @@ const Title = () => {
 const Hero = () => {
   return (
     <section className={styles.Hero}>
+      <p className="visually-hidden">
+        Nazar Vovk - frontend-oriented fullstack developer
+      </p>
       <BackgroundName />
       <Title />
       <EmailButton />

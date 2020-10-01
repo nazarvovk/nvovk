@@ -17,6 +17,9 @@
   @media (pointer: none) {
     display: none;
   }
+  &.cursorHidden {
+    opacity: 0 !important;
+  }
 }
 .Progress {
   z-index: 5000;

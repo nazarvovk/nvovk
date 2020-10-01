@@ -1,6 +1,7 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import styles from './Footer.module.scss';
+import moment from 'moment';
 
 const TwitterIcon = () => (
   <svg width="24" height="20" viewBox="0 0 24 20">
@@ -56,7 +57,7 @@ const Header = () => {
   } = site.siteMetadata;
   return (
     <footer className={styles.Footer}>
-      <span>Nazar Vovk © 2020</span>
+      <span>Nazar Vovk © {moment().year()}</span>
       <a href="mailto:work@nvovk.com">work@nvovk.com</a>
       <div>
         <a target="_blank" rel="noreferrer" href={authorLinkedInLink}>

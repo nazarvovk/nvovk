@@ -1,5 +1,5 @@
 import './global.scss';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import About from 'components/HomePage/AboutSection/About';
 import Contact from 'components/HomePage/ContactSection/Contact';
 import Footer from 'components/Footer/Footer';
@@ -9,7 +9,7 @@ import SEO from 'components/seo';
 import Services from 'components/HomePage/ServicesSection/Services';
 import Statistics from 'components/HomePage/StatisticsSection/Statistics';
 import styles from './index.module.scss';
-
+import cx from 'classnames';
 import { isTouchDevice } from '../utils';
 import Loader from 'components/Loader/Loader';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -17,23 +17,49 @@ import { AnimatePresence, motion } from 'framer-motion';
 const useCursorFollow = () => {
   const elementRef = useRef();
   useEffect(() => {
-    if (!isTouchDevice()) {
-      document.onmousemove = (e) => {
+    document.addEventListener(
+      'mousemove',
+      () => {
+        if (elementRef.current) {
+          elementRef.current.style.opacity = `1`;
+        }
+      },
+      { once: true },
+    );
+    document.addEventListener('mousemove', (e) => {
+      requestAnimationFrame(() => {
         const x = e.clientX - 16;
         const y = e.clientY - 16;
-        if(elementRef.current){
-          elementRef.current.style.opacity = `1`;
+        if (elementRef.current) {
           elementRef.current.style.transform = `translate3d(${x}px, ${y}px, 0)`;
         }
-      };
-    }
+      });
+    });
   }, []);
   return elementRef;
 };
+
 const Cursor = () => {
   const ref = useCursorFollow();
+  const [hidden, setHidden] = useState(false);
+  useLayoutEffect(() => {
+    const handler = (e) => {
+      requestAnimationFrame(() => {
+        const x = e.clientX;
+        const y = e.clientY;
+        const el = document.elementFromPoint(x, y);
+        setHidden(!!el.closest('[hide-cursor]'));
+      });
+    };
+    document.addEventListener('mousemove', handler);
+    return () => removeEventListener('mousemove', handler);
+  }, []);
   return (
-    <svg ref={ref} className={styles.Cursor} viewBox="0 0 32 32">
+    <svg
+      ref={ref}
+      className={cx(styles.Cursor, { [styles.cursorHidden]: hidden })}
+      viewBox="0 0 32 32"
+    >
       <circle
         cy="16"
         cx="16"
@@ -48,7 +74,7 @@ const Cursor = () => {
 
 const Scroll = () => {
   const ref = useRef();
-  useEffect(() => {
+  useLayoutEffect(() => {
     const handler = () => {
       const way = document.body.clientHeight - window.innerHeight;
       const percent = (window.pageYOffset * 100) / way;
@@ -93,7 +119,7 @@ const HomePage = () => {
       <AnimatePresence exitBeforeEnter>
         {!isLoaded && <Loader />}
         <motion.main key="Main">
-          <Cursor />
+          {!isTouchDevice() && isLoaded && <Cursor />}
           <Scroll />
           <div className={styles.Container}>
             <Header />
