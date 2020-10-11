@@ -60,10 +60,16 @@ const flickerVariants = {
   },
 };
 
-export const FlickerIn = ({ children, threshold = 1, ...props }) => {
+export const FlickerIn = ({
+  children,
+  element = 'div',
+  threshold = 1,
+  ...props
+}) => {
   const [ref, inView] = useInView({ threshold, triggerOnce: true });
+  const Component = motion[element];
   return (
-    <motion.div
+    <Component
       initial="out"
       animate={inView ? 'in' : 'out'}
       variants={flickerVariants}
@@ -71,11 +77,12 @@ export const FlickerIn = ({ children, threshold = 1, ...props }) => {
       {...props}
     >
       {children}
-    </motion.div>
+    </Component>
   );
 };
 
 FlickerIn.propTypes = {
   children: PropTypes.node.isRequired,
   threshold: PropTypes.number,
+  element: PropTypes.string,
 };
