@@ -1,4 +1,7 @@
 .Header {
+  display: flex;
+  justify-content: space-between;
+  max-width: calc(100vw - 4rem);
   font-size: 2rem;
   z-index: 1000;
   width: 100%;
@@ -24,6 +27,7 @@
     padding: 0;
     list-style: none;
     display: flex;
+    width: 100%;
     margin: 0;
     @media screen and (max-width: 768px) {
       justify-content: space-between;
@@ -37,4 +41,8 @@ a.BlogLink {
   &:hover {
     color: white;
   }
+}
+.alignRight {
+  width: 100%;
+  text-align: right;
 }

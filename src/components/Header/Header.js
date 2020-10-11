@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Header.module.scss';
 import { motion } from 'framer-motion';
+import CV from '../../static/CV.pdf';
 
 const containerVariants = {
   hidden: {
@@ -37,6 +38,11 @@ const Header = () => {
         </motion.li>
         <motion.li variants={variants}>
           <a href="#contact">contact</a>
+        </motion.li>
+        <motion.li variants={variants} className={styles.alignRight}>
+          <a href={CV} download>
+            CV
+          </a>
         </motion.li>
       </motion.ul>
     </header>
