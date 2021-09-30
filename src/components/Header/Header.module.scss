@@ -9,7 +9,7 @@
   top: 1rem;
   margin: 0;
   a {
-    color: white;
+    color: var(--color-1);
     text-decoration: none;
     transition: all 0.2s ease-in-out;
     &:hover {
@@ -39,7 +39,7 @@ a.BlogLink {
   opacity: 0.5;
   width: 4ch;
   &:hover {
-    color: white;
+    color: var(--color-1);
   }
 }
 .alignRight {

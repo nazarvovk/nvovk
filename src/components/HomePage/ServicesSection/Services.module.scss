@@ -54,6 +54,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  fill: var(--color-1);
 }
 .corner_tl {
   position: absolute;
@@ -61,8 +62,8 @@
   left: 0;
   width: 4rem;
   height: 4rem;
-  border-top: 0.25rem solid white;
-  border-left: 0.25rem solid white;
+  border-top: 0.25rem solid var(--color-1);
+  border-left: 0.25rem solid var(--color-1);
 }
 .corner_tr {
   position: absolute;
@@ -70,8 +71,8 @@
   right: 0;
   width: 4rem;
   height: 4rem;
-  border-top: 0.25rem solid white;
-  border-right: 0.25rem solid white;
+  border-top: 0.25rem solid var(--color-1);
+  border-right: 0.25rem solid var(--color-1);
 }
 .corner_bl {
   position: absolute;
@@ -79,8 +80,8 @@
   left: 0;
   width: 4rem;
   height: 4rem;
-  border-bottom: 0.25rem solid white;
-  border-left: 0.25rem solid white;
+  border-bottom: 0.25rem solid var(--color-1);
+  border-left: 0.25rem solid var(--color-1);
 }
 .corner_br {
   position: absolute;
@@ -88,8 +89,8 @@
   right: 0;
   width: 4rem;
   height: 4rem;
-  border-bottom: 0.25rem solid white;
-  border-right: 0.25rem solid white;
+  border-bottom: 0.25rem solid var(--color-1);
+  border-right: 0.25rem solid var(--color-1);
 }
 .ListContainer {
   font-size: 2rem;

@@ -14,7 +14,7 @@
     }
   }
   svg {
-    fill: white;
+    fill: var(--color-1);
     transition: all 0.2s ease;
 
     &:hover {

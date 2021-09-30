@@ -10,7 +10,7 @@
   transition: all ease-out 0.2s;
   width: 32px;
   height: 32px;
-  fill: white;
+  fill: var(--color-1);
   pointer-events: none;
   transform: translate(50vw, 50vh);
   opacity: 0;
@@ -33,6 +33,6 @@
   fill: none;
   stroke-dasharray: 64;
   stroke-dashoffset: 64;
-  stroke: white;
+  stroke: var(--color-1);
   stroke-width: 3px;
 }

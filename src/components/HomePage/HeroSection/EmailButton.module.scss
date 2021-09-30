@@ -26,18 +26,18 @@
     background: none;
     padding: 0 1.5rem;
     width: 100%;
-    border-color: white;
+    border-color: var(--color-1);
     span {
       display: block;
       white-space: nowrap;
-      color: white;
+      color: var(--color-1);
       transform: translateY(-10%);
       margin-left: 2ch;
       max-width: 100%;
       line-height: 1;
     }
     .Icon {
-      fill: white;
+      fill: var(--color-1);
     }
   }
 }
