@@ -40,6 +40,7 @@ const Header = () => {
       query {
         site {
           siteMetadata {
+            authorEmail
             authorTwitterLink
             authorGithubLink
             authorLinkedInLink
@@ -50,6 +51,7 @@ const Header = () => {
     `,
   );
   const {
+    authorEmail,
     authorTwitterLink,
     authorGithubLink,
     authorLinkedInLink,
@@ -58,7 +60,7 @@ const Header = () => {
   return (
     <footer className={styles.Footer}>
       <span>Nazar Vovk © {moment().year()}</span>
-      <a href="mailto:work@nvovk.com">work@nvovk.com</a>
+      <a href={`mailto:${authorEmail}`}>{authorEmail}</a>
       <div>
         <a target="_blank" rel="noreferrer" href={authorLinkedInLink}>
           <LinkedInIcon />

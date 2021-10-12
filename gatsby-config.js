@@ -4,7 +4,7 @@ module.exports = {
     title: `Nazar Vovk`,
     titleLong: `Nazar Vovk: Fullstack developer and UX designer`,
     description: `Nazar Vovk, frontend-oriented fullstack developer. I work with JavaScript, React and many more technologies to bring your ideas to life.`,
-    authorEmail: `work@nvovk.com`,
+    authorEmail: `nazar@nvovk.com`,
     authorGithub: `@nazarvovk`,
     authorGithubLink: `https://github.com/nazarvovk`,
     authorTwitter: `@nvovk_`,
