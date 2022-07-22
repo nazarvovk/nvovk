@@ -3,36 +3,17 @@
   max-width: 1650px;
   margin: auto;
   padding: 0 2rem;
-}
-.Cursor {
-  z-index: 10000;
-  position: fixed;
-  transition: all ease-out 0.2s;
-  width: 32px;
-  height: 32px;
-  fill: white;
-  pointer-events: none;
-  transform: translate(50vw, 50vh);
-  opacity: 0;
-  @media (pointer: none) {
-    display: none;
+  
+  p {
+    font-size: 1.5rem;
   }
-  &.cursorHidden {
-    opacity: 0 !important;
+  a {
+    &:hover {
+      color: #575a8e;
+    }
   }
 }
-.Progress {
-  z-index: 5000;
-  position: fixed;
-  width: 8vh;
-  min-width: 4rem;
-  min-height: 4rem;
-  height: 8vh;
-  right: 4rem;
-  top: 4rem;
-  fill: none;
-  stroke-dasharray: 64;
-  stroke-dashoffset: 64;
-  stroke: white;
-  stroke-width: 3px;
+.Spacer{
+  min-height: 80vh;
+  padding-top: 3rem;
 }
