@@ -1,20 +1,20 @@
-import { ReactNode } from 'react'
+import { ReactNode, useEffect, useReducer, useState } from 'react'
 import { ContentBoundary } from './content-boundary'
 import { cn } from '@/utils/cn'
 import { Titillium_Web } from 'next/font/google'
 import { Banner } from './banner'
 import Link from 'next/link'
 
-const titillium = Titillium_Web({ weight: '400', subsets: ['latin'] })
+const font = Titillium_Web({ weight: '400', subsets: ['latin'] })
 
 export const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className={cn(titillium.className, 'bg-neutral-50 text-neutral-950')}>
+    <div className={cn(font.className, 'bg-neutral-50 text-neutral-950')}>
       <Banner>Some important stuff here</Banner>
       <header>
         <ContentBoundary>
           <div className='flex justify-between border-b py-2'>
-            <h1 className='text-3xl'>n. vovk</h1>
+            <Title />
             <div></div>
           </div>
         </ContentBoundary>
@@ -53,5 +53,36 @@ export const Layout = ({ children }: { children: ReactNode }) => {
         </ContentBoundary>
       </footer>
     </div>
+  )
+}
+
+const TRANSITIONS = [
+  ['nazarii', 'nazari', 'nazar', 'naza', 'naz', 'na', 'n-', 'n.'],
+  ['nc', 'npw', 'naep', 'naz>q', 'nazaf\\', 'nazar$', 'nazar.'],
+  ['nazar', 'nazarw', 'nazarcp', 'nazariv', 'nazarii'],
+]
+
+const Title = () => {
+  const [stage, expand] = useReducer((state) => (state + 1) % TRANSITIONS.length, 0)
+  const lastStateOfStage = TRANSITIONS[stage][TRANSITIONS[stage].length - 1]
+  const [state, setState] = useState(lastStateOfStage)
+
+  useEffect(() => {
+    if (state === lastStateOfStage) return
+    const animationTime = 50
+    let timeout = setTimeout(function tick() {
+      setState(() => {
+        return TRANSITIONS[stage][TRANSITIONS[stage].indexOf(state) + 1]
+      })
+      timeout = setTimeout(tick, animationTime)
+    }, animationTime)
+
+    return () => clearTimeout(timeout)
+  }, [stage, lastStateOfStage, state])
+
+  return (
+    <h1 className='cursor-pointer text-3xl' onClick={expand}>
+      {state} vovk
+    </h1>
   )
 }
