@@ -1,11 +1,11 @@
 import { ReactNode, useEffect, useReducer, useState } from 'react'
 import { ContentBoundary } from './content-boundary'
 import { cn } from '@/utils/cn'
-import { Titillium_Web } from 'next/font/google'
+import { Inconsolata } from 'next/font/google'
 import { Banner } from './banner'
 import Link from 'next/link'
 
-const font = Titillium_Web({ weight: '400', subsets: ['latin'] })
+const font = Inconsolata({ weight: '400', subsets: ['latin'] })
 
 export const Layout = ({ children }: { children: ReactNode }) => {
   return (
