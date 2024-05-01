@@ -16,7 +16,7 @@ export const useMeta = () => {
   const MetaLink = ({ children, body, title, push }: MetaLinkProps) => {
     return (
       <button
-        className='underline decoration-dashed hover:decoration-solid'
+        className='select-text underline decoration-dashed hover:decoration-solid'
         onClick={() => {
           const meta = { title, body }
           const newState = push ? [...metaList, meta] : [meta]
