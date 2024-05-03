@@ -59,7 +59,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
 const TRANSITIONS = [
   ['nazarii', 'nazari', 'nazar', 'naza', 'naz', 'na', 'n-', 'n.'],
   ['nc', 'npw', 'naep', 'naz>q', 'nazaf\\', 'nazar$', 'nazar.'],
-  ['nazar', 'nazarw', 'nazarcp', 'nazariv', 'nazarii'],
+  ['nazar.', 'nazarw', 'nazarcp', 'nazariv', 'nazarii'],
 ]
 
 const Title = () => {
