@@ -9,7 +9,7 @@ const font = Inconsolata({ weight: '400', subsets: ['latin'] })
 
 export const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className={cn(font.className, 'bg-neutral-50 text-neutral-950')}>
+    <div className={cn(font.className, 'min-h-screen bg-neutral-50 text-neutral-950')}>
       <Banner>Some important stuff here</Banner>
       <header>
         <ContentBoundary>
