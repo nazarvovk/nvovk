@@ -16,10 +16,13 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
+    "holoscope": "^0.7.0",
     "next": "14.1.4",
     "react": "^18",
     "react-dom": "^18",
-    "tailwind-merge": "^2.3.0"
+    "shrext": "^0.4.0",
+    "tailwind-merge": "^2.3.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/node": "^20",

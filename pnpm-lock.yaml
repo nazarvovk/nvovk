@@ -11,6 +11,9 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      holoscope:
+        specifier: ^0.7.0
+        version: 0.7.0
       next:
         specifier: 14.1.4
         version: 14.1.4(@babel/core@7.24.3)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -20,9 +23,15 @@ importers:
       react-dom:
         specifier: ^18
         version: 18.2.0(react@18.2.0)
+      shrext:
+        specifier: ^0.4.0
+        version: 0.4.0
       tailwind-merge:
         specifier: ^2.3.0
         version: 2.3.0
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
     devDependencies:
       '@types/node':
         specifier: ^20
@@ -1429,6 +1438,9 @@ packages:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
 
+  holoscope@0.7.0:
+    resolution: {integrity: sha512-GMdvsjXEO5qfjka0/i48PLOzxXqEtrxtGa6Y2rxF9/jqrxhVkuuoUdbp6XronEBdgBiMNrYiqZI98XiI1rXOmQ==}
+
   html-escaper@2.0.2:
     resolution: {integrity: sha512-H2iMtd0I4Mt5eYiapRdIDjp+XzelXQ0tFE4JS7YFwFevXXMmOp9myNrUvCg0D6ws8iqkRPBfKHgbwig1SmlLfg==}
 
@@ -2257,6 +2269,9 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
 
+  shrext@0.4.0:
+    resolution: {integrity: sha512-VIFSDS3t6d2kkpbFzmJuCpiwByqxrBoXmJSGZEIoM2FVDXZ1hbu2XcbVJuR4lORnfQUEzGthL8Moqm+OiW5Bqw==}
+
   side-channel@1.0.6:
     resolution: {integrity: sha512-fDW/EZ6Q9RiO8eFG8Hj+7u/oW+XrPTIChwCOM2+th2A6OblDtYYIpve9m+KvI9Z4C9qSEXlaGR6bTEYHReuglA==}
     engines: {node: '>= 0.4'}
@@ -2591,6 +2606,9 @@ packages:
   yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+
+  zod@3.23.8:
+    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
 
 snapshots:
 
@@ -4314,6 +4332,10 @@ snapshots:
     dependencies:
       function-bind: 1.1.2
 
+  holoscope@0.7.0:
+    dependencies:
+      tslib: 2.6.2
+
   html-escaper@2.0.2: {}
 
   human-signals@2.1.0: {}
@@ -5303,6 +5325,8 @@ snapshots:
 
   shebang-regex@3.0.0: {}
 
+  shrext@0.4.0: {}
+
   side-channel@1.0.6:
     dependencies:
       call-bind: 1.0.7
@@ -5691,3 +5715,5 @@ snapshots:
       yargs-parser: 21.1.1
 
   yocto-queue@0.1.0: {}
+
+  zod@3.23.8: {}
