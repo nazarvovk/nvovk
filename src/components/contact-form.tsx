@@ -95,7 +95,7 @@ const Input = <T extends FieldValues>(props: InputProps<T>) => {
         {label}
       </label>
       <input
-        className='block w-full border-2 border-neutral-950 bg-transparent px-2 py-1 focus:outline-none focus:ring-2 focus:ring-neutral-700'
+        className='block w-full rounded-none border-2 border-neutral-950 bg-transparent px-2 py-1 focus:outline-none focus:ring-2 focus:ring-neutral-950'
         {...field}
         placeholder={placeholder}
         required={required}
@@ -114,7 +114,7 @@ const TextArea = <T extends FieldValues>(props: InputProps<T>) => {
         {label}
       </label>
       <textarea
-        className='block w-full border-2 border-neutral-950 bg-transparent px-2 py-1'
+        className='block w-full rounded-none border-2 border-neutral-950 bg-transparent px-2 py-1 focus:outline-none focus:ring-2 focus:ring-neutral-950'
         {...field}
         rows={3}
         placeholder={placeholder}
