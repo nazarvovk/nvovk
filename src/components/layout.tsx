@@ -94,7 +94,7 @@ const Title = () => {
   }, [stage, lastStateOfStage, state])
 
   return (
-    <h1 className='cursor-pointer text-3xl' onClick={expand}>
+    <h1 className='cursor-pointer text-3xl font-bold' onClick={expand}>
       {state} vovk
     </h1>
   )
