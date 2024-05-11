@@ -15,7 +15,7 @@ export const formRequestMiddleware = (
   onError: (error, { args: [, res] }) => {
     if (error instanceof ZodError) {
       const { fieldErrors, formErrors } = error.flatten()
-      res.status(400).json({
+      res.status(422).json({
         fieldErrors,
         formErrors,
       })

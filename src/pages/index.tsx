@@ -1,3 +1,4 @@
+import { ContactForm } from '@/components/contact-form'
 import { Typer } from '@/components/typer'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
@@ -24,8 +25,8 @@ export default function Home(props: HomeProps) {
       <Head>
         <title>n. vovk</title>
       </Head>
-      <div className='mb-8 flex items-stretch gap-x-8'>
-        <div className='w-full grow-0 space-y-4 py-2'>
+      <div className='mb-8 flex flex-col items-stretch lg:flex-row'>
+        <div className='w-full grow-0 space-y-4 border-b py-4 lg:py-2 lg:pr-8'>
           <p>
             <Typer>{`Hi! I'm Nazar and I'm a fullstack engineer.`}</Typer>
           </p>
@@ -95,7 +96,10 @@ export default function Home(props: HomeProps) {
             .
           </p>
         </div>
-        <div className='fixed left-0 top-0 w-full grow-0 bg-neutral-50 py-2 max-lg:hidden max-lg:h-full lg:relative lg:border-l'></div>
+        <div className='w-full grow-0 border-b pb-4 pt-2 lg:flex lg:flex-col lg:justify-center lg:border-l lg:py-4 lg:pl-4'>
+          <h3 className='text-xl font-bold'>Contact me</h3>
+          <ContactForm />
+        </div>
       </div>
     </>
   )

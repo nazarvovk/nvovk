@@ -5,7 +5,7 @@ import { Inconsolata } from 'next/font/google'
 import { Banner } from './banner'
 import Link from 'next/link'
 
-const font = Inconsolata({ weight: '400', subsets: ['latin'] })
+const font = Inconsolata({ weight: ['400', '700'], subsets: ['latin'] })
 
 export const Layout = ({ children }: { children: ReactNode }) => {
   return (
