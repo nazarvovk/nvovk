@@ -2,20 +2,33 @@ import { ReactNode, useEffect, useReducer, useState } from 'react'
 import { ContentBoundary } from './content-boundary'
 import { cn } from '@/utils/cn'
 import { Inconsolata } from 'next/font/google'
-import { Banner } from './banner'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 const font = Inconsolata({ weight: ['400', '700'], subsets: ['latin'] })
 
 export const Layout = ({ children }: { children: ReactNode }) => {
+  const router = useRouter()
+
   return (
     <div className={cn(font.className, 'min-h-screen bg-neutral-50 text-neutral-950')}>
-      <Banner>Some important stuff here</Banner>
+      <Link href='/help-ukraine' className='block bg-neutral-950 py-2 text-sm text-white'>
+        <ContentBoundary>
+          🇺🇦 please consider donating to help us defend from the russian war of conquest. click to
+          learn more...
+        </ContentBoundary>
+      </Link>
       <header>
         <ContentBoundary>
-          <div className='flex justify-between border-b py-2'>
+          <div className='flex items-center justify-between border-b py-2'>
             <Title />
-            <div></div>
+            <div>
+              {router.pathname !== '/' && (
+                <Link href='/' className='underline decoration-dashed hover:decoration-solid'>
+                  Home
+                </Link>
+              )}
+            </div>
           </div>
         </ContentBoundary>
       </header>
