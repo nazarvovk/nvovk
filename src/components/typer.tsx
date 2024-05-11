@@ -5,7 +5,7 @@ type TyperProps = {
   speed?: number
 }
 
-const DEFAULT_DELAY = 50 // ms
+const DEFAULT_DELAY = 30 // ms
 
 export const Typer = ({
   children: fullText,
