@@ -97,7 +97,7 @@ export default function Home(props: HomeProps) {
           </p>
         </div>
         <div className='w-full grow-0 border-b pb-4 pt-2 lg:flex lg:flex-col lg:justify-center lg:border-l lg:py-4 lg:pl-4'>
-          <h3 className='text-xl font-bold'>Contact me</h3>
+          <h3 className='mb-2 text-xl font-bold'>Contact me</h3>
           <ContactForm />
         </div>
       </div>

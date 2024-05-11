@@ -12,7 +12,8 @@ export const ContactForm = () => {
   const {
     handleSubmit,
     control,
-    formState: { isSubmitting, isSubmitSuccessful, isDirty },
+    getValues,
+    formState: { isSubmitting, isSubmitSuccessful, isDirty, errors },
     setError,
     reset,
   } = useForm<ContactInput>({
@@ -34,7 +35,15 @@ export const ContactForm = () => {
           setError(key as Path<ContactInput>, { message: (value as string[])[0] })
         }
       }
+      return
     }
+    if (!res.ok) {
+      setError('root', { message: 'Sorry, failed to send your message' })
+    }
+  }
+
+  if (isSubmitSuccessful) {
+    return <SuccessCard values={getValues()} reset={reset} />
   }
 
   return (
@@ -49,25 +58,22 @@ export const ContactForm = () => {
         required
       />
       <div className='flex gap-4'>
-        {isSubmitSuccessful ? (
-          <div className='border-2 border-neutral-950 px-2 py-1 font-bold'>🎉 Message sent!</div>
-        ) : (
-          <button
-            disabled={isSubmitting}
-            type='submit'
-            className={cn('bg-neutral-950 px-8 py-2 font-bold text-neutral-50', {
-              'bg-neutral-700': isSubmitting,
-            })}
-          >
-            {isSubmitting ? 'Sending...' : 'Send'}
-          </button>
-        )}
+        <button
+          disabled={isSubmitting}
+          type='submit'
+          className={cn('bg-neutral-950 px-8 py-2 font-bold text-neutral-50', {
+            'bg-neutral-700': isSubmitting,
+          })}
+        >
+          {isSubmitting ? 'Sending...' : 'Send'}
+        </button>
         {isDirty && (
           <button type='button' className='underline' onClick={() => reset()}>
             Reset
           </button>
         )}
       </div>
+      {errors.root && <span className='font-bold text-red-700'>{errors.root.message}</span>}
     </form>
   )
 }
@@ -115,6 +121,31 @@ const TextArea = <T extends FieldValues>(props: InputProps<T>) => {
         required={required}
       />
       {fieldState.error && <span className='text-red-700'>{fieldState.error.message}</span>}
+    </div>
+  )
+}
+
+const SuccessCard = ({ values, reset }: { values: ContactInput; reset: () => void }) => {
+  return (
+    <div className='space-y-2'>
+      <div className='max-w-72 border-2 border-neutral-950 px-2 py-1'>
+        <p className='mb-2 font-bold'>🎉 Message sent!</p>
+        <div>
+          <p>
+            <b>Name:</b> {values.name}
+          </p>
+          <p>
+            <b>Email:</b> {values.email}
+          </p>
+          <p>
+            <b>Message:</b>
+          </p>
+          <p className='whitespace-pre'>{values.message}</p>
+        </div>
+      </div>
+      <button type='button' className='underline' onClick={() => reset()}>
+        Reset
+      </button>
     </div>
   )
 }
