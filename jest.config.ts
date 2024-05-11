@@ -11,13 +11,8 @@ const jestConfig: JestConfigWithTsJest = {
       },
     ],
   },
-  moduleNameMapper: {
-    '^~/(.*)$': '<rootDir>/$1',
-  },
   testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/', '<rootDir>/temp/'],
-  snapshotResolver: './test/snapshot-resolver.ts',
   testTimeout: 20 * 1000,
-  testEnvironment: 'setup-polly-jest/jest-environment-node',
 }
 
 export default jestConfig
