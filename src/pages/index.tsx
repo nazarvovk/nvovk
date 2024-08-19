@@ -32,17 +32,12 @@ export default function Home(props: HomeProps) {
           </p>
           <p>
             <Typer>
-              {`For the past ${experienceYears} years, I’ve been professionally developing all kinds of software. I focus on writing clean and maintainable code, managing cloud infrastructure, and designing systems for growth.`}
+              {`For the past ${experienceYears} years, I’ve been professionally developing all kinds of software. I focus on system design, writing clean and maintainable code and managing cloud infrastructure.`}
             </Typer>
           </p>
           <p>
             <Typer>
-              {`Over the years I’ve tried out and worked with a lot of different tools and technologies, but lately I’ve been mostly working with the JavaScript ecosystem, AWS, generative AI, and IaC, building and maintaining cloud-based software.`}
-            </Typer>
-          </p>
-          <p>
-            <Typer>
-              {`I love doing silly (as well as some serious and sometimes even useful) side projects, some of which you can find on my `}
+              {`I love doing silly (and sometimes even useful) side projects, some of which you can find on my `}
             </Typer>
             <Link
               className='underline decoration-dashed hover:decoration-solid'
@@ -54,7 +49,7 @@ export default function Home(props: HomeProps) {
             .
           </p>
           <p>
-            <Typer>{`I run a publishing house `}</Typer>
+            <Typer>{`I also run a publishing house `}</Typer>
             <Link
               className='underline decoration-dashed hover:decoration-solid'
               href='https://coliiir.com'
@@ -65,7 +60,7 @@ export default function Home(props: HomeProps) {
             .
           </p>
           <p>
-            <Typer>{`If you have a project for me or just wanna chat hit me up on `}</Typer>
+            <Typer>{`If you wanna chat, you can hit me up on `}</Typer>
             <Link
               className='underline decoration-dashed hover:decoration-solid'
               href='https://t.me/nvovk'
@@ -84,9 +79,7 @@ export default function Home(props: HomeProps) {
             .
           </p>
           <p>
-            <Typer>
-              {`Or, if you’re all official (or represent a company) it’s probably better to shoot me an email - `}
-            </Typer>
+            <Typer>{`You can also shoot me an email - `}</Typer>
             <Link
               className='underline decoration-dashed hover:decoration-solid'
               href='mailto:nazar@nvovk.com'

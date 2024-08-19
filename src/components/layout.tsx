@@ -14,7 +14,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
     <div className={cn(font.className, 'min-h-screen bg-neutral-50 text-neutral-950')}>
       <Link href='/help-ukraine' className='block bg-neutral-950 py-2 text-sm text-white'>
         <ContentBoundary>
-          🇺🇦 please consider donating to help us defend from the russian war of conquest. click to
+          🇺🇦 please consider donating to help us in the fight against russian aggression. click to
           learn more...
         </ContentBoundary>
       </Link>
@@ -70,7 +70,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
 }
 
 const TRANSITIONS = [
-  ['nazarii', 'nazari', 'nazar', 'naza', 'naz', 'na', 'n-', 'n.'],
+  ['nazarii', 'nazari', 'nazar', 'naza', 'naz', 'na', 'n_', 'n.'],
   ['nc', 'npw', 'naep', 'naz>q', 'nazaf\\', 'nazar$', 'nazar.'],
   ['nazar.', 'nazarw', 'nazarcp', 'nazariv', 'nazarii'],
 ]
