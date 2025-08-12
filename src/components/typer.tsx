@@ -1,24 +1,21 @@
 import { useEffect, useState } from 'react'
 
-type TyperProps = {
-  children: string
-  speed?: number
-}
-
 const DEFAULT_DELAY = 30 // ms
 
-export const Typer = ({
-  children: fullText,
+export const useTyper = (
+  fullText: string,
+  active = true,
   speed = Math.max(fullText.length / 50, 0.5),
-}: TyperProps) => {
+) => {
   const lastTick = fullText.length + 2
   const [state, setState] = useState({
     tick: 1,
-    text: '0',
+    text: '',
   })
 
   useEffect(() => {
     let tickTimeout: NodeJS.Timeout
+    if (!active) return
 
     const handleTick = () => {
       const randomChars = Array.from({ length: 2 }, () =>
@@ -40,12 +37,30 @@ export const Typer = ({
     }
 
     return () => clearTimeout(tickTimeout)
-  }, [fullText, lastTick, state, speed])
+  }, [fullText, lastTick, state, speed, active])
 
-  return (
-    <>
-      <span className='sr-only'>{fullText}</span>
-      <span className='whitespace-break-spaces'>{state.text}</span>
-    </>
-  )
+  return {
+    current: state.text,
+    complete: state.tick >= lastTick,
+    fullText,
+  }
+}
+
+type Typer = ReturnType<typeof useTyper>
+
+export const useMultiTyper = (...strings: readonly string[]) => {
+  const typers: Typer[] = []
+
+  for (let i = 0; i < strings.length; i++) {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    typers.push(useTyper(strings[i], i === 0 || typers[i - 1].complete))
+  }
+
+  return typers.map((typer) => typer.current)
+}
+
+export const Typer = ({ children }: { children: string }) => {
+  const { current } = useTyper(children)
+
+  return <span className='whitespace-break-spaces'>{current}</span>
 }

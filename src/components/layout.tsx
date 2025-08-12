@@ -14,8 +14,8 @@ export const Layout = ({ children }: { children: ReactNode }) => {
     <div className={cn(font.className, 'min-h-screen bg-neutral-50 text-neutral-950')}>
       <Link href='/help-ukraine' className='block bg-neutral-950 py-2 text-sm text-white'>
         <ContentBoundary>
-          🇺🇦 please consider donating to help us in the fight against russian aggression. click to
-          learn more...
+          🇺🇦 please consider donating to help Ukraine in the fight against russian aggression. click
+          to learn more...
         </ContentBoundary>
       </Link>
       <header>
@@ -93,8 +93,14 @@ const Title = () => {
     return () => clearTimeout(timeout)
   }, [stage, lastStateOfStage, state])
 
+  const router = useRouter()
+
   return (
-    <h1 className='cursor-pointer text-3xl font-bold' onClick={expand}>
+    <h1
+      className='cursor-pointer text-3xl font-bold'
+      onClick={expand}
+      onDoubleClick={() => router.push('/')}
+    >
       {state} vovk
     </h1>
   )
