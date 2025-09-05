@@ -3,13 +3,10 @@ import { ContentBoundary } from './content-boundary'
 import { cn } from '@/utils/cn'
 import { Inconsolata } from 'next/font/google'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 
 const font = Inconsolata({ weight: ['400', '700'], subsets: ['latin'] })
 
 export const Layout = ({ children }: { children: ReactNode }) => {
-  const router = useRouter()
-
   return (
     <div className={cn(font.className, 'min-h-screen bg-neutral-50 text-neutral-950')}>
       <Link href='/help-ukraine' className='block bg-neutral-950 py-2 text-sm text-white'>
@@ -20,15 +17,8 @@ export const Layout = ({ children }: { children: ReactNode }) => {
       </Link>
       <header>
         <ContentBoundary>
-          <div className='flex items-center justify-between border-b py-2'>
+          <div className='border-b py-2'>
             <Title />
-            <div>
-              {router.pathname !== '/' && (
-                <Link href='/' className='underline decoration-dashed hover:decoration-solid'>
-                  Home
-                </Link>
-              )}
-            </div>
           </div>
         </ContentBoundary>
       </header>
@@ -93,15 +83,14 @@ const Title = () => {
     return () => clearTimeout(timeout)
   }, [stage, lastStateOfStage, state])
 
-  const router = useRouter()
+  useEffect(() => {
+    const interval = setInterval(expand, 3000)
+    return () => clearInterval(interval)
+  }, [])
 
   return (
-    <h1
-      className='cursor-pointer text-3xl font-bold'
-      onClick={expand}
-      onDoubleClick={() => router.push('/')}
-    >
-      {state} vovk
-    </h1>
+    <Link href='/'>
+      <h1 className='cursor-pointer text-3xl font-bold'>{state} vovk</h1>
+    </Link>
   )
 }
