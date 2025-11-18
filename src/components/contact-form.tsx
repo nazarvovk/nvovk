@@ -140,7 +140,7 @@ const SuccessCard = ({ values, reset }: { values: ContactInput; reset: () => voi
           <p>
             <b>Message:</b>
           </p>
-          <p className='whitespace-pre'>{values.message}</p>
+          <p className='whitespace-pre-wrap'>{values.message}</p>
         </div>
       </div>
       <button type='button' className='underline' onClick={() => reset()}>
